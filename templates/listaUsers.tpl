@@ -7,14 +7,14 @@
             <table class="table">
                 <tbody>
                     {foreach from=$users item=user}
-                        <tr id="{$user['id_usuario']}">
+                        <tr id="{$user['id_user']}">
                             <td><h5>{$user['nombre']}</h5></td>
-                            <td><h5><input type="checkbox" data-id="{$user['id_usuario']}" class="cboxSuperUser" value="{$user['id_usuario']}" {if {$user['super_user']}}checked {/if}>  SuperUser</h5></td>
-                            <td><a href="#" onclick="deleteUser({$user['id_usuario']})"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a></td>
+                            <td><h5><input type="checkbox" data-id="{$user['id_user']}" class="cboxSuperUser" value="{$user['id_user']}" {if {$user['super_user']}}checked {/if}>  SuperUser</h5></td>
+                            <td><a href="#" onclick="deleteUser({$user['id_user']})"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a></td>
                         </tr>
                     {/foreach}
                 </tbody>
-            </table>            
+            </table>
         </div>
     </div>
 </div>

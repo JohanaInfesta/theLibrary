@@ -16,18 +16,18 @@
 <body>
 
   <header>
-      
+
     <!----- nav bar ---->
     <nav class="navbar navbar-default">
-    
+
     {if $isLoggedIn}
       <a href="logout" class="btn btn-login">Sing out</a>
     {else}
       <button type="submit" onclick="navigate('http://localhost/theLibrary/registro')" class="btn btn-register">Registrarse!</button>
       <button type="submit" onclick="navigate('http://localhost/theLibrary/login')" class="btn btn-login">Sing in</button>
     {/if}
-    
-        
+
+
       <div class="container-fluid">
         <div class="navbar-header"><a href="#" onclick="navigate('http://localhost/theLibrary/listaLibros')"class="navbar-brand navbar-link">The Library</a>
           <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span>
@@ -53,7 +53,7 @@
     </nav>
     <!-- fin nav bar -->
   </header>
-   
+
     <div class="col-md-12 main-content">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -87,7 +87,7 @@
     </div>
   </footer>
   <!--fin pie pagina-->
-    
+
     <!-- Ventana emergente para los detalles de libros-->
  <div class="modal fade" tabindex="-1" role="dialog" id="manga-modal">
   <div class="modal-dialog .col-md-8 .col-md-offset-2" role="document">
@@ -102,6 +102,6 @@
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
-  <script src="js/script.js"></script> 
+  <script src="js/script.js"></script>
 </body>
 </html>

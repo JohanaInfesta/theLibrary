@@ -7,7 +7,7 @@ class ConfigApp
     public static $ACTIONS = [
         ''=> 'IndexController#index',
         //Configuración para url's items
-        
+
         //Configuración para url's categorias
         
         //Configuración para url's login, logout y verificaciones
