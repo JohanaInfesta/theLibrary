@@ -1,0 +1,59 @@
+/*Indice*/
+/* 1. Selectores universales*/
+/* 2. Header                */
+/* 3. Conteiners-cuerpo     */
+/*    3.A. Index            */
+/*    3.B. Login            */
+/*    3.C. Mangas           */
+/*    3.D. Categorias       */
+/*    3.E. ABM              */
+/* 4. Footer                */
+/* 5. Ventana Emergente     */
+
+/* 1. Selectores universales*/
+
+body {
+    color: black;
+    background-color: #dfdfdf !important;    
+    font-family: "Montserrat", Helvetica, Arial, sans-serif !important;
+    font-style: normal; font-weight: 300;
+}
+.regular {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif !important;
+    font-style: normal; font-weight: 300;
+}
+.regular_italic {
+    font-family: "Playfair Display", Helvetica, Arial, sans-serif !important;
+    font-style: italic; font-weight: 400;
+}
+.semibold {
+    font-family: "Playfair Display", Helvetica, Arial, sans-serif !important;
+    font-style: normal; font-weight: 700;
+}
+.semibold_italic {
+    font-family: "Playfair Display", Helvetica, Arial, sans-serif !important;
+    font-style: italic; font-weight: 700;
+}
+.bold, .wysiwyg-ce h1, .wysiwyg-ce h2, .wysiwyg-ce h3, .wysiwyg-ce h4, .wysiwyg-ce h5, .wysiwyg-ce h6, #semplice h1, #semplice h2, #semplice h3, #semplice h4, #semplice h5, #semplice h6 {
+    font-family: "Playfair Display", Helvetica, Arial, sans-serif;
+    font-style: normal; font-weight: 700;
+}
+.bold_italic {
+    font-family: "Playfair Display", Helvetica, Arial, sans-serif !important;
+    font-style: italic; font-weight: 700;
+}
+.custom_one {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif !important;
+    font-style: normal; font-weight: 400;
+}
+.custom_one_italic {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif !important;
+    font-style: normal; 
+    font-weight: 700;
+ }
+ a, a:hover, a::selection, a:active{
+    color: #927986;;
+ }
+
+/*--- 3. Conteiners-cuerpo  ---*/
+
