@@ -56,4 +56,9 @@ body {
  }
 
 /*--- 3. Conteiners-cuerpo  ---*/
-
+/*    3.A. Index            */
+.portada img {
+    width: 159px;
+    height: 289px;
+    display: inline-block;
+}
