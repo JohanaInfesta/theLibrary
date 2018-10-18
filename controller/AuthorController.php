@@ -15,7 +15,7 @@ class AutorController extends Controller
   }
 
   public function index(){
-    $author = $this->model->getAutores();
+    $author = $this->model->getAuthors();
     $this->view->showAuthors($author);
   }
 
@@ -25,12 +25,12 @@ class AutorController extends Controller
 
   public function booksByAuthor(){
     $id_author = $_POST['id_author'];
-    $author = $this->model->getAutor($id_author);
-    $books = $this->BookModel->getBooks($id_author);//comprobar que sea getBooks el nombre la function
+    $author = $this->model->getAuthor($id_author);
+    $books = $this->b_model->getBooks($id_author);//comprobar que sea getBooks el nombre la function
     foreach ($books as $k => $book) {
       $books[$k]["imagenes"] = $this->i_model->getImages($book["id_book"]);//comprobar nombre funcion
     }
-    $this->view->viewBooksByAuthor($author, $books);//falta hacer esta funcion
+    $this->view->viewBooksByAuthor($author, $books);
   }
 
   public function saveAuthor()
@@ -44,9 +44,9 @@ class AutorController extends Controller
       $biography = $_POST["biography"];
 
       if(!empty($id_author)){
-        $this->model->editarAutor($id_author, $name, $surname, $nationality, $biography);
+        $this->model->editAuthor($id_author, $name, $surname, $nationality, $biography);
       }else{
-        $this->model->guardarAutor($name, $surname, $nationality, $biography);
+        $this->model->saveAuthor($name, $surname, $nationality, $biography);
       }
       echo json_encode(['message' => 'El Autor se guardo exitosamente.']);
     }else{
@@ -59,7 +59,7 @@ class AutorController extends Controller
     if(UserModel::isLoggedIn()){
       $id_author = $params[0];
       try {
-        if ($this->model->borrarAutor($id_author)) {
+        if ($this->model->deleteAuthor($id_author)) {
           echo json_encode(['message' => 'El autor se elimino exitosamente.']);
         }else{
           throw new Exception('No se puede eliminar el autor ya que contiene Libros.');
@@ -77,7 +77,7 @@ class AutorController extends Controller
   {
     if (UserModel::igLoggedIn()) {
       $id_author = $params[0];
-      $author = $this->model->getAutor($id_author);
+      $author = $this->model->getAuthor($id_author);
       $this->view->showCreateAuthor($author);
     }else{
       header('Location: ' . HOME);

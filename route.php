@@ -1,11 +1,11 @@
 <?php
 
   error_reporting(E_ALL ^ E_NOTICE);
-  
+
   define('ACTION', 0);
   define('VALOR1', 1);
   define('VALOR2', 2);
-  
+
    include_once 'config/ConfigApp.php';
    include_once 'model/Model.php';
    include_once 'model/BookModel.php';

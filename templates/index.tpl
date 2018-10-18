@@ -17,12 +17,12 @@ font-family: 'Playfair Display', serif; -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">The Library</a>
-       {* {if $isLoggedIn} *}
+      {if $isLoggedIn}
         <a href="logout" class="btn btn-login">Sing out</a>
-      {* {else} *}
-        <button type="submit" onclick="navigate('http://localhost/dimensionmanga/registro')" class="btn btn-outline-dark btn-register">Registrarse!</button>
-        <button type="submit" onclick="navigate('http://localhost/dimensionmanga/login')" class="btn btn-outline-dark btn-login">Sing in</button>
-      {* {/if} *}
+      {else}
+        <button type="submit" onclick="navigate('http://localhost/theLibrary/registro')" class="btn btn-outline-dark btn-register">Registrarse!</button>
+        <button type="submit" onclick="navigate('http://localhost/theLibrary/login')" class="btn btn-outline-dark btn-login">Sing in</button>
+      {/if}
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

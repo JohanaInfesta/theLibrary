@@ -8,23 +8,27 @@ class ConfigApp
         ''=> 'IndexController#index',
         //Configuración para url's items
 
+        'listAuthors' => 'AuthorController#index',
+        'contentAuthors' => 'AuthorController#booksByAuthor',
+        'createAuthor' => 'AuthorController#createAuthor',
+        'saverAuthor' => 'AuthorController#saveAuthor',
+        'deleteAuthor' => 'AuthorController#deleteAuthor',
+        'editAuthor' => 'AuthorController#editAuthor',
+
         //Configuración para url's autores
-        'listaAutores' => 'AuthorController#index',
-        'contenidoAutores' => 'AuthorController#booksByAuthor',
-        'crearAutor' => 'AuthorController#createAuthor',
-        'guardarAutor' => 'AuthorController#saveAuthor',
-        'eliminarAutor' => 'AuthorController#deleteAuthor',
-        'editAutor' => 'AuthorController#editAuthor',
+
+        'booksList' => 'BookController#index',
+        'book' => 'BookController#index',
 
         //Configuración para url's login, logout y verificaciones
-        //'login' => 'LoginController#index',
-        //'registro' => 'LoginController#registro',
-        // 'logout' => 'LoginController#destroy',
-        // 'verificarUsuario' => 'LoginController#verify',
-        // 'crearUsuario' => 'LoginController#create',
-        // 'eliminarUsuario' => 'LoginController#delete',
-        // 'adminUsers' => 'LoginController#listaUsers',
-        // 'permisoSuperUser' => 'LoginController#superUser'
+        'login' => 'LoginController#index',
+        'registro' => 'LoginController#registro',
+        'logout' => 'LoginController#destroy',
+        'verifyUser' => 'LoginController#verify',
+        'addUser' => 'LoginController#create',
+        'deleteUser' => 'LoginController#delete',
+        'adminUsers' => 'LoginController#listaUsers',
+        'permisoSuperUser' => 'LoginController#superUser'
     ];
 
 }
