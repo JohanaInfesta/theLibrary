@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-10-2018 a las 18:20:50
+-- Tiempo de generación: 18-10-2018 a las 20:50:55
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 7.1.10
 
@@ -29,7 +29,7 @@ USE `library`;
 --
 -- Estructura de tabla para la tabla `author`
 --
--- Creación: 18-10-2018 a las 16:00:22
+-- Creación: 18-10-2018 a las 16:50:56
 --
 
 CREATE TABLE IF NOT EXISTS `author` (
@@ -49,14 +49,14 @@ CREATE TABLE IF NOT EXISTS `author` (
 INSERT INTO `author` (`id_author`, `name`, `surname`, `nationality`, `biography`, `ruta`) VALUES
 (1, 'Veronica', 'Roth', 'estadounidense', 'Veronica Roth nació el 19 de agosto de 1988, en Chicago, la misma ciudad donde se desarrolla este libro. Estudió Escritura Creativa en la Universidad de Northwestern, donde decidió empezar a hacer un borrador de Divergente, en vez de hacer los deberes que le mandaban. Viendo el éxito que ha conseguido con Divergente e Insurgente, fue una buena elección. Actualmente vive cerca de Chicago y se dedica a la escritura a tiempo completo.', 'images/veronicaRoth.jpg'),
 (2, 'Stephanie', 'Perkins', 'estadounidense', 'Stephanie Perkins nació en Carolina del Sur, creció en Arizona y fue a la universidad en San Francisco y Atlanta. Siempre ha trabajado con libros: primero como librera, después como bibliotecaria y ahora como escritora de literatura juvenil. En la actualidad vive en las montañas de Carolina del Norte con su marido, sus dos perros y su gato, en una casa en la que cada una de las habitaciones está pintada de un color del arco iris.', 'images/stephaniePerkins.jpg'),
-(3, 'Gayle', 'Forman', 'estadounidense', "Gayle Forman es una escritora conocida por su novela Si decido quedarme y que también ha trabajado como periodista para Glamour, Elle, Cosmopolitan, Seventeen y The New York Times Magazine.También ha escrito otras novelas como 'You can't get there from here Sisters in Sanity' o 'Solo un día'.", 'images/gayleForman.jpg');
+(3, 'Gayle', 'Forman', 'estadounidense', 'Gayle Forman es una escritora conocida por su novela Si decido quedarme y que también ha trabajado como periodista para Glamour, Elle, Cosmopolitan, Seventeen y The New York Times Magazine.También ha escrito otras novelas como \'You can\'t get there from here Sisters in Sanity\' o \'Solo un día\'.', 'images/gayleForman.jpg');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `book`
 --
--- Creación: 18-10-2018 a las 16:00:26
+-- Creación: 18-10-2018 a las 16:50:59
 --
 
 CREATE TABLE IF NOT EXISTS `book` (
@@ -85,24 +85,24 @@ INSERT INTO `book` (`id_book`, `name`, `gender`, `editorial`, `id_author`, `revi
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `imagen`
+-- Estructura de tabla para la tabla `image`
 --
--- Creación: 18-10-2018 a las 16:00:27
+-- Creación: 18-10-2018 a las 18:49:18
 --
 
-CREATE TABLE IF NOT EXISTS `imagen` (
-  `id_imagen` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `image` (
+  `id_image` int(11) NOT NULL AUTO_INCREMENT,
   `id_book` int(11) NOT NULL,
-  `ruta` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  PRIMARY KEY (`id_imagen`),
+  `route` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_image`),
   KEY `fk_id_book` (`id_book`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `imagen`
+-- Volcado de datos para la tabla `image`
 --
 
-INSERT INTO `imagen` (`id_imagen`, `id_book`, `ruta`) VALUES
+INSERT INTO `image` (`id_image`, `id_book`, `route`) VALUES
 (1, 1, 'images/divergente.jpg'),
 (2, 2, 'images/insurgente.jpg'),
 (3, 3, 'images/siDecidoQuedarme.jpg'),
@@ -114,7 +114,7 @@ INSERT INTO `imagen` (`id_imagen`, `id_book`, `ruta`) VALUES
 --
 -- Estructura de tabla para la tabla `user`
 --
--- Creación: 18-10-2018 a las 16:00:25
+-- Creación: 18-10-2018 a las 16:50:57
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -144,9 +144,9 @@ ALTER TABLE `book`
   ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`id_author`) REFERENCES `author` (`id_author`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `imagen`
+-- Filtros para la tabla `image`
 --
-ALTER TABLE `imagen`
+ALTER TABLE `image`
   ADD CONSTRAINT `fk_id_book` FOREIGN KEY (`id_book`) REFERENCES `book` (`id_book`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
