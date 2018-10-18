@@ -19,7 +19,7 @@ class AutorController extends Controller
     $this->view->showAuthors($author);
   }
 
-  public function createAuthor(){
+  public function create(){
     $this->view->showCreateAuthor();
   }
 
@@ -33,7 +33,7 @@ class AutorController extends Controller
     $this->view->viewBooksByAuthor($author, $books);
   }
 
-  public function saveAuthor()
+  public function store()
   {
     if(UserModel::isLoggedIn())
     {
@@ -46,7 +46,7 @@ class AutorController extends Controller
       if(!empty($id_author)){
         $this->model->editAuthor($id_author, $name, $surname, $nationality, $biography);
       }else{
-        $this->model->saveAuthor($name, $surname, $nationality, $biography);
+        $this->model->addAuthor($name, $surname, $nationality, $biography);
       }
       echo json_encode(['message' => 'El Autor se guardo exitosamente.']);
     }else{
@@ -54,7 +54,7 @@ class AutorController extends Controller
     }
   }
 
-  public function deleteAuthor($params)
+  public function delete($params)
   {
     if(UserModel::isLoggedIn()){
       $id_author = $params[0];
@@ -73,7 +73,7 @@ class AutorController extends Controller
     }
   }
 
-  public function editAuthor($params)
+  public function edit($params)
   {
     if (UserModel::igLoggedIn()) {
       $id_author = $params[0];

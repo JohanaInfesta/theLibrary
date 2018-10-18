@@ -14,7 +14,7 @@ class AuthorModel extends Model
     return $sentencia->fetch();
   }
 
-  function saveAuthor($name, $surname, $nationality, $biography){
+  function addAuthor($name, $surname, $nationality, $biography){
     $sentencia=$this->db->prepare("INSERT INTO author(name, surname, nationality, biography) VALUES(?)");
     $sentencia->execute([$name, $surname, $nationality, $biography]);
   }

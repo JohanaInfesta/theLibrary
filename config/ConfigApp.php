@@ -7,19 +7,20 @@ class ConfigApp
     public static $ACTIONS = [
         ''=> 'IndexController#index',
         //Configuración para url's items
-
-        'listAuthors' => 'AuthorController#index',
-        'contentAuthors' => 'AuthorController#booksByAuthor',
-        'createAuthor' => 'AuthorController#createAuthor',
-        'saverAuthor' => 'AuthorController#saveAuthor',
-        'deleteAuthor' => 'AuthorController#deleteAuthor',
-        'editAuthor' => 'AuthorController#editAuthor',
-
-        //Configuración para url's autores
-
         'booksList' => 'BookController#index',
         'book' => 'BookController#index',
-
+        'addBook' => 'BookController#create',
+        'editBook' => 'BookController#edit',
+        'saveBook' => 'BookController#store',
+        'deleteBook' => 'BookController#delete',
+        'deleteBookImage' => 'BookController#deleteImage',        
+        //Configuración para url's autores
+        'allAuthors' => 'AuthorController#index',
+        'author' => 'AuthorController#booksByAuthor',
+        'addAuthor' => 'AuthorController#create',
+        'saveAuthor' => 'AuthorController#store',
+        'deleteAuthor' => 'AuthorController#delete',
+        'editAuthor' => 'AuthorController#edit',
         //Configuración para url's login, logout y verificaciones
         'login' => 'LoginController#index',
         'registro' => 'LoginController#registro',

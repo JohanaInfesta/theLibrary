@@ -29,24 +29,21 @@ font-family: 'Playfair Display', serif; -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">All books <span class="sr-only">(current)</span></a>
+            <a class="nav-link"  onclick="navigate('http://localhost/theLibrary/')" href="#">All books <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" onclick="navigate('http://localhost/theLibrary/allAuthors')" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               All authors
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            {* Generar la lista de forma dinamica *}
-              <a class="dropdown-item" href="#">Rainbow Rowell</a>
-              <a class="dropdown-item" href="#">Stephany Perkins</a>
-              <a class="dropdown-item" href="#">Jhonn Green</a>
+            
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Add book</a>
+            <a class="nav-link" onclick="navigate('http://localhost/theLibrary/addBook')" href="#">Add book</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Add author</a>
+            <a class="nav-link" onclick="navigate('http://localhost/theLibrary/addAuthor')" href="#">Add author</a>
           </li>
         </ul>
       </div>
@@ -66,7 +63,7 @@ font-family: 'Playfair Display', serif; -->
   <footer class="container footer">
     <div class="row">
       <div class="col-md-4 col-sm-6 footer-navigation">
-        <a href="#" onclick="navigate('http://localhost/theLibrary/allBooks')" ><h3>  The Library </h3></a>
+        <a href="#" onclick="navigate('http://localhost/theLibrary/')" ><h3>  The Library </h3></a>
         <p class="company-name">The Library © 2018</p>
       </div>
       <div class="col-md-4 col-sm-6 footer-contacts">
