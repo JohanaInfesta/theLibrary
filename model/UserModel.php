@@ -1,5 +1,5 @@
 <?php
-class UsuarioModel extends Model
+class UserModel extends Model
 {
 
   function __construct() {
@@ -17,7 +17,7 @@ class UsuarioModel extends Model
     return $sentencia->fetch();
   }
   
-  function userExist($userMail){
+  function userUserModelExist($userMail){
     $sentencia = $this->db->prepare("SELECT mail.* FROM usuario WHERE mail = ? LIMIT 1");
     $sentencia->execute([$userMail]);
     return $sentencia->fetch();
@@ -40,7 +40,7 @@ class UsuarioModel extends Model
 
   /**
    * usar para chequear si el usuario esta logeado
-   * UsuarioModel::isLoggedIn()
+   * UserModel::isLoggedIn()
    */
   static function isLoggedIn() {
     session_start();
@@ -54,7 +54,7 @@ class UsuarioModel extends Model
 
   /**
    * usar para chequear si el usuario es administrador
-   * UsuarioModel::isSuperUser()
+   * UserModel::isSuperUser()
    */
   static function isSuperUser(){
     $user = $_SESSION['USER'];

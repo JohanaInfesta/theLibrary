@@ -9,7 +9,7 @@ class View
   function __construct()
   {
     $this->smarty = new Smarty();
-    $this->smarty->assign('titulo', 'MVC Tareas');
+    $this->smarty->assign('titulo', 'The Library');
   }
 }
  ?>
