@@ -6,36 +6,36 @@ class UserModel extends Model
     parent::__construct();
   }
   function getUsers(){
-    $sentencia = $this->db->prepare( "SELECT * FROM usuario");
-    $sentencia->execute();
-    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $sentence = $this->db->prepare( "SELECT * FROM usuario");
+    $sentence->execute();
+    return $sentence->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function getUser($userMail){
-    $sentencia = $this->db->prepare( "SELECT * FROM usuario WHERE mail = ? LIMIT 1");
-    $sentencia->execute([$userMail]);
-    return $sentencia->fetch();
+    $sentence = $this->db->prepare( "SELECT * FROM usuario WHERE mail = ? LIMIT 1");
+    $sentence->execute([$userMail]);
+    return $sentence->fetch();
   }
   
   function userUserModelExist($userMail){
-    $sentencia = $this->db->prepare("SELECT mail.* FROM usuario WHERE mail = ? LIMIT 1");
-    $sentencia->execute([$userMail]);
-    return $sentencia->fetch();
+    $sentence = $this->db->prepare("SELECT mail.* FROM usuario WHERE mail = ? LIMIT 1");
+    $sentence->execute([$userMail]);
+    return $sentence->fetch();
   }
 
   function recordUser($userName, $userMail, $hash){
-    $sentencia = $this->db->prepare('INSERT INTO usuario(nombre, mail, clave) VALUES(?,?,?)');
-    $sentencia->execute([$userName,$userMail, $hash]);
+    $sentence = $this->db->prepare('INSERT INTO usuario(nombre, mail, clave) VALUES(?,?,?)');
+    $sentence->execute([$userName,$userMail, $hash]);
   }
 
   function deleteUser($id_user){
-    $sentencia = $this->db->prepare( "DELETE FROM usuario WHERE id_usuario = ?");
-    $sentencia->execute([$id_user]);
+    $sentence = $this->db->prepare( "DELETE FROM usuario WHERE id_usuario = ?");
+    $sentence->execute([$id_user]);
   }
 
   function editPermissionSuper($id_user, $permisoSuper){
-    $sentencia = $this->db->prepare('UPDATE usuario SET super_user = ?  WHERE id_usuario = ?');
-    $sentencia->execute([$permisoSuper, $id_user]);
+    $sentence = $this->db->prepare('UPDATE usuario SET super_user = ?  WHERE id_usuario = ?');
+    $sentence->execute([$permisoSuper, $id_user]);
   }
 
   /**
