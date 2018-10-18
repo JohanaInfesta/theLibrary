@@ -9,10 +9,10 @@ class ConfigApp
         //Configuración para url's items
 
         //Configuración para url's categorias
-        
+
         //Configuración para url's login, logout y verificaciones
-        // 'login' => 'LoginController#index',
-        // 'registro' => 'LoginController#registro',
+        //'login' => 'LoginController#index',
+        //'registro' => 'LoginController#registro',
         // 'logout' => 'LoginController#destroy',
         // 'verificarUsuario' => 'LoginController#verify',
         // 'crearUsuario' => 'LoginController#create',

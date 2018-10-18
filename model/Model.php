@@ -7,10 +7,10 @@ class Model
   const DB_PASS = '';
 
   protected $db;
-  
+
   function __construct()
   {
-    try {
+    try {      
       $this->db = new PDO('mysql:host=localhost;dbname=library;charset=utf8', self::DB_USER, self::DB_PASS);
     } catch (PDOException $e) {
       $this->install();
