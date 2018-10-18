@@ -2,6 +2,7 @@
 include_once('model/AuthorModel.php');
 include_once('model/BookModel.php');
 include_once('view/AuthorView.php');
+include_once('model/ImagesModel.php');
 
 class AuthorController extends Controller
 {
@@ -42,11 +43,12 @@ class AuthorController extends Controller
       $surname = $_POST["surname"];
       $nationality = $_POST["nationality"];
       $biography = $_POST["biography"];
+      $routeTempImages = $_FILES['images']['tmp_name'];
 
       if(!empty($id_author)){
-        $this->model->editAuthor($id_author, $name, $surname, $nationality, $biography);
+        $this->model->editAuthor($id_author, $name, $surname, $nationality, $biography, $routeTempImages);
       }else{
-        $this->model->addAuthor($name, $surname, $nationality, $biography);
+        $this->model->addAuthor($name, $surname, $nationality, $biography, $routeTempImages);
       }
       echo json_encode(['message' => 'El Autor se guardo exitosamente.']);
     }else{
