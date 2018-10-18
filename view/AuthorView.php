@@ -18,11 +18,11 @@ class AuthorView extends View
     if($author){
       $this->smarty->assign('author', $author);
     }
-    $this->smarty->display('templates/formAuthor');
+    $this->smarty->display('templates/formAuthor.tpl');
   }
 
-  function errorCreateAuthor($error, $name, $surname, $nationality, $biography){
-    $this->smarty->assign(array('nombre' => $name , 'apellido' => $surname, 'nacionalidad' => $nationality, 'biografia' => $biography));
+  function errorCreateAuthor($error, $name, $surname, $nationality, $biography, $id_image){
+    $this->smarty->assign(array('nombre' => $name , 'apellido' => $surname, 'nacionalidad' => $nationality, 'biografia' => $biography, 'images' => $id_image));
     $this->smarty->assign('error', $error);
     $this->smarty->display('templates/formAuthor.tpl');
   }
