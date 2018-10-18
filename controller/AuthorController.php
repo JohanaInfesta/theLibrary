@@ -15,8 +15,8 @@ class AutorController extends Controller
   }
 
   public function index(){
-    $author = $this->model->getAuthors();
-    $this->view->showAuthors($author);
+    $authors = $this->model->getAuthors();
+    $this->view->showAuthors($authors);
   }
 
   public function create(){

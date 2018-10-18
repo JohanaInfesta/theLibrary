@@ -57,6 +57,17 @@ body {
 
 /*--- 3. Conteiners-cuerpo  ---*/
 /*    3.A. Index            */
+.authorsDropdown:hover .dropdown-menu {
+    display: block;
+}
+.cuerpo-index {
+    text-align: center;
+    margin-top: 20px;
+}
+.portada{
+    display: inline-block;
+    margin:3% 0;
+}
 .portada img {
     width: 159px;
     height: 289px;

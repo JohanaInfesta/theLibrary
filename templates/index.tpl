@@ -31,12 +31,16 @@ font-family: 'Playfair Display', serif; -->
           <li class="nav-item active">
             <a class="nav-link"  onclick="navigate('http://localhost/theLibrary/')" href="#">All books <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown authorsDropdown">
             <a class="nav-link dropdown-toggle" onclick="navigate('http://localhost/theLibrary/allAuthors')" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               All authors
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            
+              {foreach from=$authors item=author}
+                <a class="dropdown-item" href="#" onclick="navigate('http://localhost/theLibrary/author', {ldelim}id_author:{$author['id_author']}{rdelim})">
+                {$author['name']}
+                </a>
+              {/foreach}
             </div>
           </li>
           <li class="nav-item">
