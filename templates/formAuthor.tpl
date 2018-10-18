@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3" id="">
+  <div class="col-md-4 col-md-offset-4" id="">
   </div>
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-4 col-md-offset-4">
     <form method="post" onsubmit="addAuthor(this, event)">
       <input type="hidden" id="" name="id_author" value="{$author['id_author']}">
 
@@ -30,7 +30,7 @@
         <input type=file id="" name="images[]" accept="image/*" placeholder="url de la imagen" required>
       </div>
 
-      <button type="submit" class="btn btn-default">Guardar Autor</button>
+      <button type="submit" class="btn btn-outline-dark btn-categorias">Guardar Autor</button>
     </form>
   </div>
 </div>
