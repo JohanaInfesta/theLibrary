@@ -22,8 +22,6 @@ class Model
   function install() {
     try {
       $this->db = new PDO('mysql:host=localhost', self::DB_USER, self::DB_PASS);
-      $this->db->exec('CREATE DATABASE IF NOT EXISTS library');
-      $this->db->exec('USE library');
       $sql = file_get_contents('./install/library.sql');
       $this->db->exec($sql);
     } catch(Exception $e) {
