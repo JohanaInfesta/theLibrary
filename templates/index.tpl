@@ -57,7 +57,7 @@ font-family: 'Playfair Display', serif; -->
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; background-color: #927986;"></div>            
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; background-color: #927986;"></div>
         </div>
       </div>
     </div>
