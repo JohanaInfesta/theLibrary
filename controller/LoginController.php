@@ -1,5 +1,5 @@
 <?php
-include_once('model/UsuarioModel.php');
+include_once('model/UserModel.php');
 include_once('view/LoginView.php');
 
 class LoginController extends Controller
@@ -8,7 +8,7 @@ class LoginController extends Controller
   function __construct()
   {
     $this->view = new LoginView();
-    $this->model = new UsuarioModel();
+    $this->model = new UserModel();
   }
 
   public function index()
@@ -63,7 +63,7 @@ class LoginController extends Controller
 
   public function delete($params)
   {
-    if (UsuarioModel::isLoggedIn() && UsuarioModel::isSuperUser()) {
+    if (UserModel::isLoggedIn() && UserModel::isSuperUser()) {
       $id_user = $params[0];
       $this->model->deleteUser($id_user);
       echo json_encode(['message' => 'El usuario a sido eliminado exitosamente.']);
@@ -73,7 +73,7 @@ class LoginController extends Controller
   }
 
   public function superUser($params){
-    if (UsuarioModel::isLoggedIn() && UsuarioModel::isSuperUser()) {
+    if (UserModel::isLoggedIn() && UserModel::isSuperUser()) {
       $id_user = $params[0];
       $permisoSuper = $params[1];
       
