@@ -3,7 +3,6 @@ include_once('model/AuthorModel.php');
 include_once('model/BookModel.php');
 include_once('view/AuthorView.php');
 
-
 class AuthorController extends Controller
 {
 
