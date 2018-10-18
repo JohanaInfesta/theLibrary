@@ -3,7 +3,7 @@ class AuthorView extends View
 {
   function showAuthors($authors){
     $this->smarty->assign('authors', $authors);
-    $this->smarty->display('templates/autores.tpl');
+    $this->smarty->display('templates/authors.tpl');
   }
 
   function viewBooksByAuthor($books, $id_author){
