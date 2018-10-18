@@ -1,7 +1,7 @@
 <?php
-include_once('model/AutoresModel.php');
-include_once('model/LibrosModel.php');
-include_once('view/AutoresView.php');
+include_once('model/AuthorModel.php');
+include_once('model/BookModel.php');
+include_once('view/AuthorView.php');
 
 class AutorController extends Controller
 {
@@ -15,7 +15,7 @@ class AutorController extends Controller
 
   public function index()
   {
-    
+
   }
 
 
