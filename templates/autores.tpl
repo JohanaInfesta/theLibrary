@@ -4,9 +4,9 @@
         </div>
         <div class="row">
             <div class="col listaAutores">
-                {foreach from=$autor item=autor}
-                    <button type="button" class="btn btn-default btn-autores" onclick="navigatePost('http://localhost/theLibrary/contenidoAutor', {ldelim}id_author:{$autor['id_author']}{rdelim})">
-                        {$autor['name']}
+                {foreach from=$authors item=author}
+                    <button type="button" class="btn btn-default btn-autores" onclick="navigatePost('http://localhost/theLibrary/contenidoAutor', {ldelim}id_author:{$author['id_author']}{rdelim})">
+                        {$author['name']}
                     </button>
                 {/foreach}
             </div>
