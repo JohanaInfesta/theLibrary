@@ -6,35 +6,35 @@ class UserModel extends Model
     parent::__construct();
   }
   function getUsers(){
-    $sentence = $this->db->prepare( "SELECT * FROM usuario");
+    $sentence = $this->db->prepare( "SELECT * FROM user");
     $sentence->execute();
     return $sentence->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function getUser($userMail){
-    $sentence = $this->db->prepare( "SELECT * FROM usuario WHERE mail = ? LIMIT 1");
+    $sentence = $this->db->prepare( "SELECT * FROM user WHERE mail = ? LIMIT 1");
     $sentence->execute([$userMail]);
     return $sentence->fetch();
   }
   
-  function userUserModelExist($userMail){
-    $sentence = $this->db->prepare("SELECT mail.* FROM usuario WHERE mail = ? LIMIT 1");
+  function userExist($userMail){
+    $sentence = $this->db->prepare("SELECT * FROM user WHERE mail = ? LIMIT 1");
     $sentence->execute([$userMail]);
     return $sentence->fetch();
   }
 
   function recordUser($userName, $userMail, $hash){
-    $sentence = $this->db->prepare('INSERT INTO usuario(nombre, mail, clave) VALUES(?,?,?)');
-    $sentence->execute([$userName,$userMail, $hash]);
+    $sentence = $this->db->prepare('INSERT INTO user(name, mail, pass) VALUES(?,?,?)');
+    $sentence->execute([$userName,$userMail, $hash, ]);
   }
 
   function deleteUser($id_user){
-    $sentence = $this->db->prepare( "DELETE FROM usuario WHERE id_usuario = ?");
+    $sentence = $this->db->prepare( "DELETE FROM user WHERE id_user = ?");
     $sentence->execute([$id_user]);
   }
 
   function editPermissionSuper($id_user, $permisoSuper){
-    $sentence = $this->db->prepare('UPDATE usuario SET super_user = ?  WHERE id_usuario = ?');
+    $sentence = $this->db->prepare('UPDATE user SET is_admin = ?  WHERE id_user = ?');
     $sentence->execute([$permisoSuper, $id_user]);
   }
 

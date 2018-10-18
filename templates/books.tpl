@@ -2,6 +2,19 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2" id="mensaje"></div>
     </div>
+    {if ($author) != null}
+        <div class="row">
+            <div class="col">
+                <section class="col-12">
+                    <h3 class="authorName">{$author['name']} {$author['surname']}</h3>
+                    <img src="{$author['route']}" alt="{$author['name']} {$author['surname']}" class="author">
+                    <div class="authorInfo">
+                        <p class="biography">{$author['biography']}</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    {/if}
     <div class="row">
         <div class="col">
             {foreach from=$books item=book}
@@ -11,8 +24,8 @@
                         <div class="name">{$book['name']}</div>
                     </a>
                     {if ($isLoggedIn)}
-                    <a href="#" onclick="deleteBook({$book['id_book']})"><i class="fa fa-trash fa-3x fa-fw" aria-hidden="true"></i></a>
-                    <a href="#" onclick="editBook({$book['id_book']})"><i class="fa fa-edit fa-3x fa-fw" aria-hidden="true"></i></a>
+                        <a href="#" onclick="deleteBook({$book['id_book']})"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a>
+                        <a href="#" onclick="editBook({$book['id_book']})"><i class="fa fa-edit fa-2x fa-fw" aria-hidden="true"></i></a>
                     {/if}
                 </section>
             {/foreach}

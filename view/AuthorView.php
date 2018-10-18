@@ -6,11 +6,10 @@ class AuthorView extends View
     $this->smarty->display('templates/authors.tpl');
   }
 
-  function viewBooksByAuthor($books, $id_author){
-    $this->smarty->assign('isLoggedIn', UserModel::isLoggedIn());
-    $this->smarty->assign('book', $books);
-    $this->smarty->assign('author', $id_author);
-    $this->smarty->display('templates/libros.tpl');
+  function viewBooksByAuthor($books, $author){
+    $this->smarty->assign('books', $books);
+    $this->smarty->assign('author', $author);
+    $this->smarty->display('templates/books.tpl');
   }
 
 

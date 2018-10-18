@@ -27,18 +27,18 @@ class LoginController extends Controller
       $password = $_POST['clave'];
     }
 
-      if(!empty($userMail) && !empty($password)){
-        $user = $this->model->getUser($userMail);
+    if(!empty($userMail) && !empty($password)){
+      $user = $this->model->getUser($userMail);
 
-        if((!empty($user)) && password_verify($password, $user['clave'])) {
-            session_start();
-            $_SESSION['USER'] = $user;
-            $_SESSION['LAST_ACTIVITY'] = time();
-            echo json_encode(['url' => HOME]);
-        } else {
-            echo json_encode(['error' => 'Usuario o contraseña incorrectos']);
-        }
+      if((!empty($user)) && password_verify($password, $user['pass'])) {
+          session_start();
+          $_SESSION['USER'] = $user;
+          $_SESSION['LAST_ACTIVITY'] = time();
+          echo json_encode(['url' => HOME]);
+      } else {
+          echo json_encode(['error' => 'Usuario o contraseña incorrectos']);
       }
+    }
   }
   public function create()
   {

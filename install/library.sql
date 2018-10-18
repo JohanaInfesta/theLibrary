@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `author` (
   `surname` varchar(100) NOT NULL,
   `nationality` varchar(100) NOT NULL,
   `biography` text NOT NULL,
-  `ruta` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `route` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id_author`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `author` (
 -- Volcado de datos para la tabla `author`
 --
 
-INSERT INTO `author` (`id_author`, `name`, `surname`, `nationality`, `biography`, `ruta`) VALUES
+INSERT INTO `author` (`id_author`, `name`, `surname`, `nationality`, `biography`, `route`) VALUES
 (1, 'Veronica', 'Roth', 'estadounidense', "Veronica Roth nació el 19 de agosto de 1988, en Chicago, la misma ciudad donde se desarrolla este libro. Estudió Escritura Creativa en la Universidad de Northwestern, donde decidió empezar a hacer un borrador de Divergente, en vez de hacer los deberes que le mandaban. Viendo el éxito que ha conseguido con Divergente e Insurgente, fue una buena elección. Actualmente vive cerca de Chicago y se dedica a la escritura a tiempo completo.", 'images/veronicaRoth.jpg'),
 (2, 'Stephanie', 'Perkins', 'estadounidense', "Stephanie Perkins nació en Carolina del Sur, creció en Arizona y fue a la universidad en San Francisco y Atlanta. Siempre ha trabajado con libros: primero como librera, después como bibliotecaria y ahora como escritora de literatura juvenil. En la actualidad vive en las montañas de Carolina del Norte con su marido, sus dos perros y su gato, en una casa en la que cada una de las habitaciones está pintada de un color del arco iris.", 'images/stephaniePerkins.jpg'),
 (3, 'Gayle', 'Forman', 'estadounidense', "Gayle Forman es una escritora conocida por su novela Si decido quedarme y que también ha trabajado como periodista para Glamour, Elle, Cosmopolitan, Seventeen y The New York Times Magazine.También ha escrito otras novelas como 'You can't get there from here Sisters in Sanity' o 'Solo un día'.", 'images/gayleForman.jpg');
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `name` varchar(100) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `is_admin` tinyint(4) NOT NULL,
+  `is_admin` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
