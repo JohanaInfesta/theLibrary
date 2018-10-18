@@ -18,7 +18,7 @@ class AuthorView extends View
     if($author){
       $this->smarty->assign('author', $author);
     }
-    $this->smarty->display('templates/formAuthor');//colocar form
+    $this->smarty->display('templates/formAuthor');
   }
 
   function errorCreateAuthor($error, $name, $surname, $nationality, $biography){

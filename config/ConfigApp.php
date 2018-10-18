@@ -13,7 +13,7 @@ class ConfigApp
         'editBook' => 'BookController#edit',
         'saveBook' => 'BookController#store',
         'deleteBook' => 'BookController#delete',
-        'deleteBookImage' => 'BookController#deleteImage',        
+        'deleteBookImage' => 'BookController#deleteImage',
         //Configuración para url's autores
         'allAuthors' => 'AuthorController#index',
         'author' => 'AuthorController#booksByAuthor',
