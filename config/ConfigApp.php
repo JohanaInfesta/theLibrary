@@ -7,19 +7,19 @@ class ConfigApp
     public static $ACTIONS = [
         ''=> 'IndexController#index',
         //Configuración para url's items
-
+        'booksList' => 'BookController#index',
+        'book' => 'BookController#index',
         //Configuración para url's categorias
-        'listaLibros' => 'LibrosController#index',
 
         //Configuración para url's login, logout y verificaciones
-        //'login' => 'LoginController#index',
-        //'registro' => 'LoginController#registro',
-        // 'logout' => 'LoginController#destroy',
-        // 'verificarUsuario' => 'LoginController#verify',
-        // 'crearUsuario' => 'LoginController#create',
-        // 'eliminarUsuario' => 'LoginController#delete',
-        // 'adminUsers' => 'LoginController#listaUsers',
-        // 'permisoSuperUser' => 'LoginController#superUser'
+        'login' => 'LoginController#index',
+        'registro' => 'LoginController#registro',
+        'logout' => 'LoginController#destroy',
+        'verifyUser' => 'LoginController#verify',
+        'addUser' => 'LoginController#create',
+        'deleteUser' => 'LoginController#delete',
+        'adminUsers' => 'LoginController#listaUsers',
+        'permisoSuperUser' => 'LoginController#superUser'
     ];
 
 }
