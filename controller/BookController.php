@@ -20,7 +20,7 @@ class BookController extends Controller
     if($book == null){
       $books = $this->model->getBooks();
       foreach ($books as $b => $book){
-        $books[$k]['images'] = $this->i_model->getImages($book['id_book']);
+        $books[$b]["images"] = $this->i_model->getImages($book['id_book']);
       }
       $this->view->viewBooks($books);
     }else{
