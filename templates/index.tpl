@@ -16,7 +16,7 @@ font-family: 'Playfair Display', serif; -->
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">The Library</a>
+      <a class="navbar-brand" href="#" onclick="navigate('http://localhost/theLibrary/')">The Library</a>
       {if $isLoggedIn}
         <a href="logout" class="btn btn-login">Sing out</a>
       {else}
