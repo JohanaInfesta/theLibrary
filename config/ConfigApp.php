@@ -8,8 +8,13 @@ class ConfigApp
         ''=> 'IndexController#index',
         //Configuración para url's items
 
-        //Configuración para url's categorias
-        'listaLibros' => 'LibrosController#index',
+        //Configuración para url's autores
+        'listaAutores' => 'AuthorController#index',
+        'contenidoAutores' => 'AuthorController#booksByAuthor',
+        'crearAutor' => 'AuthorController#createAuthor',
+        'guardarAutor' => 'AuthorController#saveAuthor',
+        'eliminarAutor' => 'AuthorController#deleteAuthor',
+        'editAutor' => 'AuthorController#editAuthor',
 
         //Configuración para url's login, logout y verificaciones
         //'login' => 'LoginController#index',

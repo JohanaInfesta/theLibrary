@@ -10,27 +10,27 @@ class AutorController extends Controller
   {
     $this->view = new AuthorView();
     $this->model = new AuthorModel();
-    $this->mangaModel = new BookModel();
-    //$this->i_model = new ImagenesModel();
+    $this->b_model = new BookModel();
+    $this->i_model = new ImagesModel();
   }
 
   public function index(){
     $author = $this->model->getAutores();
-    $this->view->mostrarAutores($author);
+    $this->view->showAuthors($author);
   }
 
-  public function create(){
-    $this->view->mostrarCrearAutor();
+  public function createAuthor(){
+    $this->view->showCreateAuthor();
   }
 
-  public function librosPorAutor(){
+  public function booksByAuthor(){
     $id_author = $_POST['id_author'];
     $author = $this->model->getAutor($id_author);
-    $book = $this->BookModel->getBooks($id_author);//comprobar que sea getBooks el nombre la function
+    $books = $this->BookModel->getBooks($id_author);//comprobar que sea getBooks el nombre la function
     foreach ($books as $k => $book) {
-      $books[$k]["imagenes"] = $this->i_model->getImagenes($book["id_book"]);//comprobar nombre funcion
+      $books[$k]["imagenes"] = $this->i_model->getImages($book["id_book"]);//comprobar nombre funcion
     }
-    $this->view->mostrarLibrosPorAutor();//falta hacer esta funcion
+    $this->view->viewBooksByAuthor($author, $books);//falta hacer esta funcion
   }
 
   public function saveAuthor()
@@ -38,10 +38,10 @@ class AutorController extends Controller
     if(UserModel::isLoggedIn())
     {
       $id_author = $_POST["id_author"];
-      $name = $_POST["nombre"];
-      $surname = $_POST["apellido"];
-      $nationality = $_POST["nacionalidad"];
-      $biography = $_POST["biografia"];
+      $name = $_POST["name"];
+      $surname = $_POST["surname"];
+      $nationality = $_POST["nationality"];
+      $biography = $_POST["biography"];
 
       if(!empty($id_author)){
         $this->model->editarAutor($id_author, $name, $surname, $nationality, $biography);
@@ -64,7 +64,7 @@ class AutorController extends Controller
         }else{
           throw new Exception('No se puede eliminar el autor ya que contiene Libros.');
         }
-      } catch (\Exception $e) {
+      } catch (Exception $e) {
         echo json_encode(['error' => $e->getMessage()]);
       }
 
@@ -73,12 +73,12 @@ class AutorController extends Controller
     }
   }
 
-  public function editAutor($params)
+  public function editAuthor($params)
   {
     if (UserModel::igLoggedIn()) {
       $id_author = $params[0];
       $author = $this->model->getAutor($id_author);
-      $this->view->mostrarCrearAutor($author);
+      $this->view->showCreateAuthor($author);
     }else{
       header('Location: ' . HOME);
     }
