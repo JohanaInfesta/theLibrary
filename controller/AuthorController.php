@@ -38,14 +38,14 @@ class AuthorController extends Controller
   {
     if(UserModel::isLoggedIn())
     {
-      $id_author = $_POST["id_author"];
-      $name = $_POST["name"];
-      $surname = $_POST["surname"];
-      $nationality = $_POST["nationality"];
-      $biography = $_POST["biography"];
+      $id_author = $_POST['id_author'];
+      $name = $_POST['name'];
+      $surname = $_POST['surname'];
+      $nationality = $_POST['nationality'];
+      $biography = $_POST['biography'];
       $routeTempImages = $_FILES['images']['tmp_name'];
 
-      if(!empty($id_author)){
+      if($id_author!=null){
         $this->model->editAuthor($id_author, $name, $surname, $nationality, $biography, $routeTempImages);
       }else{
         $this->model->addAuthor($name, $surname, $nationality, $biography, $routeTempImages);

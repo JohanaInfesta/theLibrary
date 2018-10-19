@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `name` varchar(100) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `is_admin` tinyint(4) NOT NULL DEFAULT '0',
+  `is_admin` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 

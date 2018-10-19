@@ -221,9 +221,9 @@ function saveAuthor(form, event) {
             console.log(JSON.parse(res));
             res = JSON.parse(res);
             if (res.message) {
-                $("#mensajeCategoria").html($('<div class="alert alert-success " role="alert"></div>').append(res.message));
+                $("#mensajeForm").html($('<div class="alert alert-success " role="alert"></div>').append(res.message));
             } else if (res.error) {
-                $("#mensajeCategoria").html($('<div class="alert alert-danger" role="alert"></div>').append(res.error));
+                $("#mensajeForm").html($('<div class="alert alert-danger" role="alert"></div>').append(res.error));
             }
         },
         error: function (err) {
