@@ -8,7 +8,7 @@
                     <section id="{$author['id_author']}" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 authors">
                         <a href="#" onclick="navigatePost('http://localhost/theLibrary/author', {ldelim}id_author:{$author['id_author']}{rdelim})">
                             <img src="{$author['route']}"/>
-                            <div class="name">{$author['name']}</div>
+                            <div class="name">{$author['name']} {$author['surname']}</div>
                         </a>
                     </section>
                 {/foreach}

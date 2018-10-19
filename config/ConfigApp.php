@@ -8,7 +8,7 @@ class ConfigApp
         ''=> 'IndexController#index',
         //Configuración para url's items
         'booksList' => 'BookController#index',
-        'book' => 'BookController#index',
+        'book' => 'BookController#description',
         'addBook' => 'BookController#create',
         'editBook' => 'BookController#edit',
         'saveBook' => 'BookController#store',

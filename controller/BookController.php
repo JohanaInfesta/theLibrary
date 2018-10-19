@@ -15,23 +15,19 @@ class BookController extends Controller
     $this->i_model = new ImagesModel();
   }
 
-  public function index($book = NULL)
+  public function index()
   {
-    if($book == null){
-      $books = $this->model->getBooks();
-      foreach ($books as $b => $book){
-        $books[$b]["images"] = $this->i_model->getImages($book['id_book']);
-      }
-      $this->view->viewBooks($books);
-    }else{
-      $this->view->viewBook($book);
+    $books = $this->model->getBooks();
+    foreach ($books as $b => $book){
+      $books[$b]["images"] = $this->i_model->getImages($book['id_book']);
     }
+    $this->view->viewBooks($books);
   }
 
   public function create()
   {
     $authors = $this->a_model->getAuthors();
-    $this->view->viewFormBook($authors);
+    $this->view->viewFormBook($nameauthors);
   }
 
   public function edit($params) {
@@ -49,9 +45,11 @@ class BookController extends Controller
   }
 
   public function description(){
-    $id_book= $_POST['id_book']; 
+    $id_book= $_POST['id_book'];
+    echo "<script>console.log(".json_encode($id_book).");</script>";                  
     $book = $this->model->getBook($id_book);
     $book["images"] = $this->i_model->getImages($book["id_book"]);
+
     $this->view->viewBook($book);
   }
 

@@ -4,17 +4,17 @@ class BookModel extends Model
 {
   function getBooks($id_author = null){
     if($id_author == null){
-    $sentence = $this->db->prepare( "SELECT book.*, a.name AS author FROM book LEFT JOIN author AS a ON a.id_author = book.id_author");
+    $sentence = $this->db->prepare( "SELECT book.*, CONCAT_WS(' ', a.name, a.surname) AS author FROM book LEFT JOIN author AS a ON a.id_author = book.id_author");
     $sentence->execute();
     }else{
-      $sentence = $this->db->prepare( "SELECT book.*, a.name AS author FROM book LEFT JOIN author AS a ON a.id_author = book.id_author WHERE book.id_author = ?");
+      $sentence = $this->db->prepare( "SELECT book.*, CONCAT_WS(' ', a.name, a.surname) AS author FROM book LEFT JOIN author AS a ON a.id_author = book.id_author WHERE book.id_author = ?");
       $sentence->execute([$id_author]);
     } 
     return $sentence->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function getBook($id_book){
-    $sentence  = $this->db->prepare( "SELECT book.*, a.name AS author FROM book LEFT JOIN author AS a ON a.id_author = book.id_author WHERE book.id_book = ?");
+    $sentence  = $this->db->prepare( "SELECT book.*, CONCAT_WS(' ', a.name, a.surname) AS author FROM book LEFT JOIN author AS a ON a.id_author = book.id_author WHERE book.id_book = ?");
     $sentence->execute([$id_book]);
     return $sentence->fetch();
   }

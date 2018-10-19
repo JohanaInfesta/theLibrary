@@ -38,7 +38,7 @@ font-family: 'Playfair Display', serif; -->
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {foreach from=$authors item=author}
                 <a class="dropdown-item" href="#" onclick="navigatePost('http://localhost/theLibrary/author', {ldelim}id_author:{$author['id_author']}{rdelim})">
-                {$author['name']}
+                {$author['name']} {$author['surname']}
                 </a>
               {/foreach}
             </div>

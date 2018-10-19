@@ -26,7 +26,6 @@ class AuthorController extends Controller
 
   public function booksByAuthor(){
     $id_author = $_POST['id_author'];
-    echo "<script>console.log(".json_encode($id_author).");</script>";            
     $author = $this->model->getAuthor($id_author);
     $books = $this->b_model->getBooks($id_author);
     foreach ($books as $b => $book) {

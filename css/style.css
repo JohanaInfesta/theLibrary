@@ -4,8 +4,8 @@
 /* 3. Conteiners-cuerpo     */
 /*    3.A. Index            */
 /*    3.B. Login            */
-/*    3.C. Mangas           */
-/*    3.D. Categorias       */
+/*    3.C. Books            */
+/*    3.D. Authors          */
 /*    3.E. ABM              */
 /* 4. Footer                */
 /* 5. Ventana Emergente     */
@@ -66,6 +66,8 @@ body {
     text-align: center;
     margin-top: 20px;
 }
+
+/*    3.C. Books            */
 .portada, .authors{
     display: inline-block;
     margin:3% 0;
@@ -81,14 +83,14 @@ body {
     display: inline-block;
 }
 
-.authorBox{
+.itemBox{
     display: inline-block;
 }
-.authorBox .author{
+.itemBox .author, .itemBox .book{
     width: 190px;
     height: 280px;
     float: left;
 }
-.authorBox .authorName{
+.itemBox .itemName{
     display: inline;
 }
