@@ -6,10 +6,18 @@
         <div class="row">
             <div class="col">
                 <section class="col-12">
-                    <h3 class="authorName">{$author['name']} {$author['surname']}</h3>
-                    <img src="{$author['route']}" alt="{$author['name']} {$author['surname']}" class="author">
-                    <div class="authorInfo">
-                        <p class="biography">{$author['biography']}</p>
+                    <div class="authorBox">
+                        <div class="authorName">
+                            <h3 class="authorName">{$author['name']} {$author['surname']}</h3>
+                            {if ($isLoggedIn)}
+                                <a href="#" onclick="deleteAuthor({$author['id_author']})"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a>
+                                <a href="#" onclick="editAuthor({$author['id_author']})"><i class="fa fa-edit fa-2x fa-fw" aria-hidden="true"></i></a>
+                            {/if}
+                        </div>
+                        <img src="{$author['route']}" alt="{$author['name']} {$author['surname']}" class="author">
+                        <div class="authorInfo">
+                            <p class="biography">{$author['biography']}</p>
+                        </div>
                     </div>
                 </section>
             </div>
