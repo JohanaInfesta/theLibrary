@@ -1,4 +1,4 @@
-<div class="container cuerpo-index">
+<div class="container-fluid cuerpo-index">
     <div class="row">
         <div class="col-md-8 col-md-offset-2" id="mensaje"></div>
     </div>

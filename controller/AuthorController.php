@@ -77,7 +77,7 @@ class AuthorController extends Controller
 
   public function edit($params)
   {
-    if (UserModel::igLoggedIn()) {
+    if (UserModel::isLoggedIn()) {
       $id_author = $params[0];
       $author = $this->model->getAuthor($id_author);
       $this->view->showCreateAuthor($author);

@@ -94,3 +94,12 @@ body {
 .itemBox .itemName{
     display: inline;
 }
+
+.cuerpo-form{
+    margin: auto;
+}
+
+#mensajeForm{
+    top: 15px;
+    bottom: 15px;
+}
