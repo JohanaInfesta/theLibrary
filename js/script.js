@@ -21,7 +21,7 @@ function navigate(url) {
                         } else if (res.error) {
                             $("#mensaje").html($('<div class="alert alert-danger" role="alert"></div>').append(res.error));
                         }
-    let tplComments;
+  //  let tplComments;
 },
                     error: function (err) {
                         console.error(err);
