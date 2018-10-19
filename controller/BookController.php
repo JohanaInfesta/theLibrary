@@ -27,7 +27,8 @@ class BookController extends Controller
   public function create()
   {
     $authors = $this->a_model->getAuthors();
-    $this->view->viewFormBook($nameauthors);
+    $genders = $this->genders();
+    $this->view->viewFormBook($authors, $genders);
   }
 
   public function edit($params) {
@@ -35,9 +36,10 @@ class BookController extends Controller
       $id_book = $params[0];
       if ($id_book){
         $authors = $this->a_model->getAuthors();
-        $this->view->viewFormBook($authors, $this->model->getBook($id_book), $this->i_model->getImages($id_book));
+        $genders = $this->genders();    
+        $this->view->viewFormBook($authors, $genders, $this->model->getBook($id_book), $this->i_model->getImages($id_book));
       } else {
-        $this->view->viewFormBook($authors);
+        $this->view->viewFormBook($authors, $genders);
       }
     } else {
       header('Location: ' . HOME);
@@ -101,5 +103,9 @@ class BookController extends Controller
     } else {
       echo json_encode(['error' => 'Usted no tiene permisos para realizar esta operación.']);
     }
+  }
+
+  private function genders(){
+    return ['Novela', 'Acción', 'Drama', 'Poesía'];
   }
 }

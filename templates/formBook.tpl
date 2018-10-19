@@ -14,11 +14,10 @@
         <div class="form-group">
           <label for="gender">Genero: </label>
           <select>
-            <option value=""></option>
-            <option value="{$book['gender']}">Novela</option>
-            <option value="{$book['gender']}">Accion</option>
-            <option value="{$book['gender']}">Drama</option>
-            <option value="{$book['gender']}">Terror</option>
+            <option value="">Seleccionar Genero</option>
+            {foreach from=$genders item=gender}
+              <option value="{$gender}" {if $book['gender'] == $gender}selected {/if}>{$gender}</option>
+            {/foreach}
           </select>
         </div>
 
@@ -30,9 +29,9 @@
         <div class="form-group">
           <label for="id_author">Autor: </label>
           <select name="id_author">
-            <option value=""></option>
-            {foreach from =$authors item=author}
-            <option value="{$author['name']}">{$author['name']} {$author['surname']}</option>
+            <option value="">Seleccionar Autor</option>                    
+            {foreach from=$authors item=author}
+            <option value="{$author['id_author']}" {if $author['id_author'] == $book['id_author']}selected {/if}>{$author['name']} {$author['surname']}</option>
             {/foreach}
           </select>
         </div>
@@ -49,7 +48,7 @@
 
         <div class="form-group">
           <label for="imagen">Imagen Libro:</label>
-          <input type=file id="" name="images[]" accept="image/*" placeholder="url de la imagen" multiple {if !$manga['id_manga']} required{/if}>
+          <input type=file id="" name="images[]" accept="image/*" placeholder="url de la imagen" multiple {if !$book['id_book']} required{/if}>
         </div>
 
         <button type="submit" class="btn btn-outline-dark btn-categorias">Guardar Libro</button>
