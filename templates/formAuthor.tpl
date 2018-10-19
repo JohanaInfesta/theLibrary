@@ -2,7 +2,7 @@
   <div class="col-md-4 col-md-offset-4" id="">
   </div>
   <div class="col-md-4 col-md-offset-4">
-    <form method="post" onsubmit="addAuthor(this, event)">
+    <form method="post" enctype="multipart/form-data" onsubmit="addAuthor(this, event)">
       <input type="hidden" id="" name="id_author" value="{$author['id_author']}">
 
       <div class="form-group">

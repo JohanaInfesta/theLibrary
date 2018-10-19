@@ -2,7 +2,7 @@
   <div class="col-md-4 col-md-offset-4" id="">
   </div>
   <div class="col-md-4 col-md-offset-4">
-    <form method="post" onsubmit="addBook(this, event)">
+    <form method="post" enctype="multipart/form-data" onsubmit="addBook(this, event)">
       <input type="hidden" id="" name="id_book" value="{$book['id_book']}">
 
       <div class="form-group">
@@ -48,7 +48,7 @@
 
       <div class="form-group">
         <label for="imagen">Imagen Libro:</label>
-        <input type=file id="" name="images[]" accept="image/*" placeholder="url de la imagen" required>
+        <input type=file id="" name="images[]" accept="image/*" placeholder="url de la imagen" multiple {if !$manga['id_manga']} required{/if}>
       </div>
 
       <button type="submit" class="btn btn-outline-dark btn-categorias">Guardar Libro</button>
