@@ -43,12 +43,14 @@ font-family: 'Playfair Display', serif; -->
               {/foreach}
             </div>
           </li>
+          {if $isSuperUser}
           <li class="nav-item">
             <a class="nav-link" onclick="navigate('http://localhost/theLibrary/addBook')" href="#">Add book</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" onclick="navigate('http://localhost/theLibrary/addAuthor')" href="#">Add author</a>
           </li>
+          {/if}
         </ul>
       </div>
     </nav>
