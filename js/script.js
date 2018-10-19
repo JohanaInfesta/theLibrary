@@ -257,4 +257,3 @@ function deleteAuthor(id_author) {
 function editAuthor(id_author) {
     navigate('http://localhost/theLibrary/editAuthor/' + id_author);
 }
-

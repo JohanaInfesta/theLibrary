@@ -2,7 +2,7 @@
   <div class="col-md-4 col-md-offset-4" id="">
   </div>
   <div class="col-md-4 col-md-offset-4">
-    <form method="post" onsubmit="addAuthor(this, event)">
+    <form method="post" enctype="multipart/form-data" onsubmit="addAuthor(this, event)">
       <input type="hidden" id="" name="id_author" value="{$author['id_author']}">
 
       <div class="form-group">
@@ -32,5 +32,17 @@
 
       <button type="submit" class="btn btn-outline-dark btn-categorias">Guardar Autor</button>
     </form>
+  </div>
+  <div class="col-md-8 col-md-offset-3">
+  {if $author['id_author']}
+      {foreach from=$imagenes item=image}
+        <section id="{$image['id_image']}" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 portada">
+          <img src="{$image['route']}"/>
+          <a href="#" onclick="deleteImage({$image['id_image']})">
+            <i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i>
+          </a>
+        </section>
+      {/foreach}
+  {/if}
   </div>
 </div>
