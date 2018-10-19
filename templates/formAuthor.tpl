@@ -33,4 +33,16 @@
       <button type="submit" class="btn btn-outline-dark btn-categorias">Guardar Autor</button>
     </form>
   </div>
+  <div class="col-md-8 col-md-offset-3">
+  {if $author['id_author']}
+      {foreach from=$imagenes item=image}
+        <section id="{$image['id_image']}" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 portada">
+          <img src="{$image['route']}"/>
+          <a href="#" onclick="deleteImage({$image['id_image']})">
+            <i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i>
+          </a>
+        </section>
+      {/foreach}
+  {/if}
+  </div>
 </div>
