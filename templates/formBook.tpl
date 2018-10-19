@@ -27,10 +27,11 @@
       </div>
 
       <div class="form-group">
+        <label for="id_author">Autor: </label>
         <select name="id_author">
           <option value=""></option>
           {foreach from =$authors item=author}
-          <option value="{$author['name']}">{$author['name']}</option>
+          <option value="{$author['name']}">{$author['name']} {$author['surname']}</option>
           {/foreach}
         </select>
       </div>
