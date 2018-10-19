@@ -47,7 +47,7 @@
       </div>
 
       <div class="form-group">
-        <label for="imagen">Imagen Manga:</label>
+        <label for="imagen">Imagen Librp:</label>
         <input type=file id="" name="images[]" accept="image/*" placeholder="url de la imagen" required>
       </div>
 

@@ -13,7 +13,7 @@
           <label for="password">Clave</label>
           <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" name="clave" required>
         </div>
-        <button type="submit" class="btn btn-categorias">Ingresar</button>
+        <button type="submit" class="btn btn-outline-dark btn-categorias">Ingresar</button>
       </form>
     </div>
   </div>
