@@ -21,7 +21,7 @@
             <label for="confirm_password">Confirme su contraseña</label>
             <input type="password" class="form-control" placeholder="Confirme su contraseña" value="" id="confirm_password" name="confirmarClave"required>
         </div>
-        <button type="submit" class="btn btn-categorias">Ingresar</button>
+        <button type="submit" class="btn btn-outline-dark btn-categorias">Ingresar</button>
       </form>
     </div>
   </div>

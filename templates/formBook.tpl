@@ -2,7 +2,7 @@
   <div class="col-md-4 col-md-offset-4" id="">
   </div>
   <div class="col-md-4 col-md-offset-4">
-    <form method="post" onsubmit="addAuthor(this, event)">
+    <form method="post" onsubmit="addBook(this, event)">
       <input type="hidden" id="" name="id_book" value="{$book['id_book']}">
 
       <div class="form-group">
@@ -27,10 +27,11 @@
       </div>
 
       <div class="form-group">
+        <label for="id_author">Autor: </label>
         <select name="id_author">
           <option value=""></option>
           {foreach from =$authors item=author}
-          <option value="{$author['name']}">{$author['name']}</option>
+          <option value="{$author['name']}">{$author['name']} {$author['surname']}</option>
           {/foreach}
         </select>
       </div>
@@ -46,7 +47,7 @@
       </div>
 
       <div class="form-group">
-        <label for="imagen">Imagen Manga:</label>
+        <label for="imagen">Imagen Libro:</label>
         <input type=file id="" name="images[]" accept="image/*" placeholder="url de la imagen" required>
       </div>
 
