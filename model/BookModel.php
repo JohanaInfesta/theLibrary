@@ -22,7 +22,7 @@ class BookModel extends Model
   private function addImages($images, $id_book){
 
     $routes = [];
-
+    
     foreach ($images as $image) {
       $route = 'images/' . uniqid() .'.jpg';
       move_uploaded_file($image, $route);
@@ -43,11 +43,12 @@ class BookModel extends Model
     $this->addImages($images, $id_book);
   }
   
-  function editBook($id_book, $name, $gender, $editorial, $id_author, $review, $nbr_pages, $images){
-    echo "<script>console.log(".json_encode($gender).");</script>";        
+  function editBook($id_book, $name, $gender, $editorial, $id_author, $review, $nbr_pages, $images = NULL){
     $sentence = $this->db->prepare( "UPDATE book SET name = ?, gender = ?, editorial = ?, id_author = ?, review = ?, nbr_pages = ? WHERE id_book=?");
     $sentence->execute([$name, $gender, $editorial, $id_author, $review, $nbr_pages, $id_book]);
+    //if($images != NULL){ //verificar que no cargue las imagenes cuando no envia nada
     $this->addImages($images, $id_book);
+    //}
   }
 
   function deleteBook($id_book){

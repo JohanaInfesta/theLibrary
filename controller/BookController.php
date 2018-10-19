@@ -64,10 +64,13 @@ class BookController extends Controller
       $editorial =$_POST['editorial'];
       $id_author = $_POST['id_author'];
       $review = $_POST['review'];
-      $nbr_pages =  $_POST['nbr_pages'];
-      
+      $nbr_pages =  $_POST['nbr_pages']; 
       if ($id_book != null) {
-        $this->model->editBook($id_book, $name, $gender, $editorial, $id_author, $review, $nbr_pages, $routeTempImages);
+        //if($_FILES['images']['tmp_name'] != ""){
+          $this->model->editBook($id_book, $name, $gender, $editorial, $id_author, $review, $nbr_pages, $routeTempImages);
+        //}else{
+          //$this->model->editBook($id_book, $name, $gender, $editorial, $id_author, $review, $nbr_pages);
+        //}
       } else {
         $this->model->addBook($name, $gender, $editorial, $id_author, $review, $nbr_pages, $routeTempImages);
       }
