@@ -37,13 +37,13 @@ font-family: 'Playfair Display', serif; -->
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {foreach from=$authors item=author}
-                <a class="dropdown-item" href="#" onclick="navigate('http://localhost/theLibrary/author', {ldelim}id_author:{$author['id_author']}{rdelim})">
+                <a class="dropdown-item" href="#" onclick="navigatePost('http://localhost/theLibrary/author', {ldelim}id_author:{$author['id_author']}{rdelim})">
                 {$author['name']}
                 </a>
               {/foreach}
             </div>
           </li>
-          {if $isSuperUser}
+          {if $isLoggedIn}
           <li class="nav-item">
             <a class="nav-link" onclick="navigate('http://localhost/theLibrary/addBook')" href="#">Add book</a>
           </li>
