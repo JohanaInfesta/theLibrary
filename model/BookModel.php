@@ -29,7 +29,7 @@ class BookModel extends Model
       $routes[] = $route;
     }
 
-    $sentence_images = $this->db->prepare('INSERT INTO [image](id_book, [route]) VALUES(?,?)');
+    $sentence_images = $this->db->prepare('INSERT INTO image(id_book, route) VALUES(?,?)');
 
     foreach ($routes as $route) {
       $sentence_images->execute([$id_book,$route]);
@@ -37,14 +37,15 @@ class BookModel extends Model
   }
 
   function addBook($name, $gender, $editorial, $id_author, $review, $nbr_pages, $images){
-    $sentence = $this->db->prepare('INSERT INTO book([name], gender, editorial, id_author, review, nbr_pages) VALUES(?,?,?,?,?,?)');
+    $sentence = $this->db->prepare('INSERT INTO book(name, gender, editorial, id_author, review, nbr_pages) VALUES(?,?,?,?,?,?)');
     $sentence->execute([$name, $gender, $editorial, $id_author, $review, $nbr_pages]);
     $id_book = $this->db->lastInsertId();
     $this->addImages($images, $id_book);
   }
-
+  
   function editBook($id_book, $name, $gender, $editorial, $id_author, $review, $nbr_pages, $images){
-    $sentence = $this->db->prepare( "UPDATE book SET [name] = ?, gender = ?, editorial = ?, id_author = ?, review = ?, nbr_pages = ? WHERE id_book=?");
+    echo "<script>console.log(".json_encode($gender).");</script>";        
+    $sentence = $this->db->prepare( "UPDATE book SET name = ?, gender = ?, editorial = ?, id_author = ?, review = ?, nbr_pages = ? WHERE id_book=?");
     $sentence->execute([$name, $gender, $editorial, $id_author, $review, $nbr_pages, $id_book]);
     $this->addImages($images, $id_book);
   }

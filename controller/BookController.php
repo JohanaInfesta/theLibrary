@@ -48,7 +48,6 @@ class BookController extends Controller
 
   public function description(){
     $id_book= $_POST['id_book'];
-    echo "<script>console.log(".json_encode($id_book).");</script>";                  
     $book = $this->model->getBook($id_book);
     $book["images"] = $this->i_model->getImages($book["id_book"]);
 
@@ -66,8 +65,8 @@ class BookController extends Controller
       $id_author = $_POST['id_author'];
       $review = $_POST['review'];
       $nbr_pages =  $_POST['nbr_pages'];
-
-      if (!empty($id_book)) {
+      
+      if ($id_book != null) {
         $this->model->editBook($id_book, $name, $gender, $editorial, $id_author, $review, $nbr_pages, $routeTempImages);
       } else {
         $this->model->addBook($name, $gender, $editorial, $id_author, $review, $nbr_pages, $routeTempImages);

@@ -3,7 +3,7 @@
     <div class="col-md-4 col-md-offset-4" id="">
     </div>
     <div class="col-md-4 col-md-offset-4">
-      <form method="post" enctype="multipart/form-data" onsubmit="addBook(this, event)">
+      <form method="post" enctype="multipart/form-data" onsubmit="saveBook(this, event)">
         <input type="hidden" id="" name="id_book" value="{$book['id_book']}">
 
         <div class="form-group">
@@ -13,7 +13,7 @@
 
         <div class="form-group">
           <label for="gender">Genero: </label>
-          <select>
+          <select name="gender">
             <option value="">Seleccionar Genero</option>
             {foreach from=$genders item=gender}
               <option value="{$gender}" {if $book['gender'] == $gender}selected {/if}>{$gender}</option>
@@ -23,7 +23,7 @@
 
         <div class="form-group">
           <label for="editorial">Editorial: </label>
-          <input type="text" class="form-control" id="" name="nationality" value="{$book['editorial']}" placeholder="Editorial" required>
+          <input type="text" class="form-control" id="" name="editorial" value="{$book['editorial']}" placeholder="Editorial" required>
         </div>
 
         <div class="form-group">
