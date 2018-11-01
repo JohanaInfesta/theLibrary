@@ -91,6 +91,8 @@ font-family: 'Playfair Display', serif; -->
   </footer>
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+<script type="handlebars-v4.0.12.js"></script> <!-- js de handlebars-->
+<script type="js/scriptApi.js"></script> <!-- js de la api-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
   <script src="js/script.js"></script>
 </body>
