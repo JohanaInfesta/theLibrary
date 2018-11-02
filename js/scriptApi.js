@@ -1,25 +1,25 @@
 "use strict"
-let templateComentarios;
-fetch('js/templates/comentarios.handlebars')
+let templateCommentary;
+fetch('js/templates/commentary.handlebars')
 .then(response => response.text())
 .then(template => { //template = nombre que quiero
-  templateComentarios = handlebars.compile(template);//compila y deja listo para usar
+  templateCommentary = handlebars.compile(template);//compila y deja listo para usar
   //llamar funcion que muestra las tareas
-  getComentarios();
+  getCommentarys();
 });
 
-function getComentarios(){
-  fetch("apli/comentarios")
+function getCommentarys(){
+  fetch("api/commentary")
   .then(response => response.json())
-  .then(jsonComentarios =>{
-    mostrarComentarios(jsonComentarios);
+  .then(jsonCommentary =>{
+    showCommentarys(jsonCommentary);
   })
 }
 
-function mostrarComentarios(comentarios){
+function showCommentary(Commentary){
   let context = {//como el assing de smarty
-    comentarios: jsonComentarios
+    Commentary: jsonCommentary
 }
-let html = templateComentarios(context);
+let html = templateCommentary(context);
 document.querySelector("#").innerHTML = html;
 }

@@ -36,7 +36,7 @@ class BookController extends Controller
       $id_book = $params[0];
       if ($id_book){
         $authors = $this->a_model->getAuthors();
-        $genders = $this->genders();    
+        $genders = $this->genders();
         $this->view->viewFormBook($authors, $genders, $this->model->getBook($id_book), $this->i_model->getImages($id_book));
       } else {
         $this->view->viewFormBook($authors, $genders);
@@ -64,7 +64,7 @@ class BookController extends Controller
       $editorial =$_POST['editorial'];
       $id_author = $_POST['id_author'];
       $review = $_POST['review'];
-      $nbr_pages =  $_POST['nbr_pages']; 
+      $nbr_pages =  $_POST['nbr_pages'];
       if ($id_book != null) {
         //if($_FILES['images']['tmp_name'] != ""){
           $this->model->editBook($id_book, $name, $gender, $editorial, $id_author, $review, $nbr_pages, $routeTempImages);
@@ -74,7 +74,7 @@ class BookController extends Controller
       } else {
         $this->model->addBook($name, $gender, $editorial, $id_author, $review, $nbr_pages, $routeTempImages);
       }
-      
+
       echo json_encode(['message' => 'El libro se guardo exitosamente.']);
     } else {
       echo json_encode(['error' => 'Usted no tiene permisos para realizar esta operación.']);
@@ -98,7 +98,7 @@ class BookController extends Controller
       $id_image = $params[0];
       if ($id_image){
           $this->i_model->deleteImage($id_image);
-          echo json_encode(['message' => 'La imagen se borro exitosamente.']);      
+          echo json_encode(['message' => 'La imagen se borro exitosamente.']);
         } else {
           echo json_encode(['error' => 'No se encontro la imagen con ID: ' . $id_image]);
         }

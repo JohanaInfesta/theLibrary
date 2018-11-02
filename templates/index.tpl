@@ -11,7 +11,7 @@
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display" rel="stylesheet">
   <!-- font-family: 'Montserrat', sans-serif;
-font-family: 'Playfair Display', serif; -->
+  font-family: 'Playfair Display', serif; -->
   <title>The Library</title>
 </head>
 <body>
@@ -19,10 +19,10 @@ font-family: 'Playfair Display', serif; -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#" onclick="navigate('http://localhost/theLibrary/')">The Library</a>
       {if $isLoggedIn}
-        <a href="logout" class="btn btn-login">Sing out</a>
+      <a href="logout" class="btn btn-login">Sing out</a>
       {else}
-        <button type="submit" onclick="navigate('http://localhost/theLibrary/registro')" class="btn btn-outline-dark btn-register">Registrarse!</button>
-        <button type="submit" onclick="navigate('http://localhost/theLibrary/login')" class="btn btn-outline-dark btn-login">Sing in</button>
+      <button type="submit" onclick="navigate('http://localhost/theLibrary/registro')" class="btn btn-outline-dark btn-register">Registrarse!</button>
+      <button type="submit" onclick="navigate('http://localhost/theLibrary/login')" class="btn btn-outline-dark btn-login">Sing in</button>
       {/if}
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,9 +38,9 @@ font-family: 'Playfair Display', serif; -->
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {foreach from=$authors item=author}
-                <a class="dropdown-item" href="#" onclick="navigatePost('http://localhost/theLibrary/author', {ldelim}id_author:{$author['id_author']}{rdelim})">
+              <a class="dropdown-item" href="#" onclick="navigatePost('http://localhost/theLibrary/author', {ldelim}id_author:{$author['id_author']}{rdelim})">
                 {$author['name']} {$author['surname']}
-                </a>
+              </a>
               {/foreach}
             </div>
           </li>
@@ -91,9 +91,9 @@ font-family: 'Playfair Display', serif; -->
   </footer>
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-<script type="handlebars-v4.0.12.js"></script> <!-- js de handlebars-->
-<script type="js/scriptApi.js"></script> <!-- js de la api-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
   <script src="js/script.js"></script>
+  <script type="js/handlebars-v4.0.12.js"></script> <!-- js de handlebars-->
+  <script type="js/scriptApi.js"></script> <!-- js de la api-->
 </body>
 </html>

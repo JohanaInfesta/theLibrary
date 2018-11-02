@@ -9,7 +9,7 @@ class BookModel extends Model
     }else{
       $sentence = $this->db->prepare( "SELECT book.*, CONCAT_WS(' ', a.name, a.surname) AS author FROM book LEFT JOIN author AS a ON a.id_author = book.id_author WHERE book.id_author = ?");
       $sentence->execute([$id_author]);
-    } 
+    }
     return $sentence->fetchAll(PDO::FETCH_ASSOC);
   }
 
@@ -22,7 +22,7 @@ class BookModel extends Model
   private function addImages($images, $id_book){
 
     $routes = [];
-    
+
     foreach ($images as $image) {
       $route = 'images/' . uniqid() .'.jpg';
       move_uploaded_file($image, $route);
@@ -42,7 +42,7 @@ class BookModel extends Model
     $id_book = $this->db->lastInsertId();
     $this->addImages($images, $id_book);
   }
-  
+
   function editBook($id_book, $name, $gender, $editorial, $id_author, $review, $nbr_pages, $images = NULL){
     $sentence = $this->db->prepare( "UPDATE book SET name = ?, gender = ?, editorial = ?, id_author = ?, review = ?, nbr_pages = ? WHERE id_book=?");
     $sentence->execute([$name, $gender, $editorial, $id_author, $review, $nbr_pages, $id_book]);

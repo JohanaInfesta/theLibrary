@@ -29,7 +29,7 @@
         <div class="form-group">
           <label for="id_author">Autor: </label>
           <select name="id_author">
-            <option value="">Seleccionar Autor</option>                    
+            <option value="">Seleccionar Autor</option>
             {foreach from=$authors item=author}
             <option value="{$author['id_author']}" {if $author['id_author'] == $book['id_author']}selected {/if}>{$author['name']} {$author['surname']}</option>
             {/foreach}
