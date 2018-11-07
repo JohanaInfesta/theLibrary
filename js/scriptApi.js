@@ -12,13 +12,13 @@ function getCommentarys(){
   fetch("api/commentary")
   .then(response => response.json())
   .then(jsonCommentary =>{
-    showCommentarys(jsonCommentary);
+    renderCommentarys(jsonCommentary);
   })
 }
 
-function showCommentary(Commentary){
+function renderCommentary(commentary){
   let context = {//como el assing de smarty
-    Commentary: jsonCommentary
+    comentarios: commentary
 }
 let html = templateCommentary(context);
 document.querySelector("#").innerHTML = html;
