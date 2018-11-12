@@ -20,7 +20,7 @@ class CommetaryApiController extends ApiController{
   }
 
   function deleteCommentary($id){
-    if (UserModel::isLoggedIn()) {
+    if (UserModel::isSuperUser()) {
       $commentary = $this->$model->getCommentary($id);
       if ($commentary) {
         $this->model->deleteCommentary($id);
@@ -32,6 +32,14 @@ class CommetaryApiController extends ApiController{
   }
 
   function createCommentary($params = []){
+    $body = $this->getData();
+    $user = $body->user;
+    $comentario = $body->comentario;
+    $puntaje = $body->puntaje;
+    $id_book = $body->id_book;
+    $id_commentary = $this->model->addCommentary($user, $texto, $puntaje, $id_book);
+    $commentary = $this->model->getCommentary($id_commentary);
+
 
   }
 

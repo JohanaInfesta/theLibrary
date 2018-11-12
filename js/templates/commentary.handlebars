@@ -1,6 +1,15 @@
 <!--armar html del template comentarios-->
-<ul>
-  {{#each comentarios}}
-  <!--mostrar contennido  -->
+{{#each commentary}}
+  <div class="col-md-12 media" id="{{id_commentary}}">
+    <div class="media-body">
+      <h4 class="media-heading title">{{nombre}}</h4>
+      <h5 class="media-subheading points">Puntaje: {{puntaje}}</h5>
+      <p>{{comentario}}</p>
+      {{#isSuperUser}}
+        <a class="js-delete" data-idcomment="{{id_commentary}}"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a>
+        <a class="js-edit" data-idcomment="{{id_commentary}}"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a>
+      {{/isSuperUser}}
+    </div>
+  </div>
 {{/each}}
-</ul>
+<!--creo que asi esta bien  -->

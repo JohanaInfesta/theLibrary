@@ -16,9 +16,9 @@ function getCommentarys(){
   })
 }
 
-function renderCommentary(commentary){
+function renderCommentary(comentarios){
   let context = {//como el assing de smarty
-    comentarios: commentary
+    commentary: comentarios
 }
 let html = templateCommentary(context);
 document.querySelector("#").innerHTML = html;
