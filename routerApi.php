@@ -1,12 +1,12 @@
 <?php
-require_once 'config/Router.php';
+require_once 'Router.php';
 require_once 'api/CommentaryApiController.php';
-include_once '../model/Model.php';
-include_once '../model/CommentaryModel.php';
-include_once '../controller/Controller.php';
-include_once 'controller/CommentaryApiController.php';
-include_once '../view/View';
-include_once '../view/CommentaryView.php';
+include_once 'model/Model.php';
+include_once 'model/CommentaryModel.php';
+include_once 'controller/Controller.php';
+include_once 'api/CommentaryApiController.php';
+include_once 'view/View';
+include_once 'view/CommentaryView.php';
 
 $router = new Router();
 
