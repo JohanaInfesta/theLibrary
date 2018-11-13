@@ -95,5 +95,6 @@
   <script src="js/script.js"></script>
   <script type="js/handlebars-v4.0.12.js"></script> <!-- js de handlebars-->
   <script type="js/scriptApi.js"></script> <!-- js de la api-->
+  <script src='https://www.google.com/recaptcha/api.js'></script><!--captcha -->
 </body>
 </html>

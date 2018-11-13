@@ -8,8 +8,8 @@ fetch('js/templates/commentary.handlebars')
   getCommentarys();
 });
 
-function getCommentarys(){
-  fetch("api/commentary")
+function getCommentarys(id_book){
+  fetch("api/commentary" + id_book)
   .then(response => response.json())
   .then(jsonCommentary =>{
     renderCommentarys(jsonCommentary);
@@ -21,5 +21,5 @@ function renderCommentary(comentarios){
     commentary: comentarios
 }
 let html = templateCommentary(context);
-document.querySelector("#").innerHTML = html;
+document.querySelector("#listCommentary").innerHTML = html;
 }

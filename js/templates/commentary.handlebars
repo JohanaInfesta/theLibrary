@@ -2,12 +2,12 @@
 {{#each commentary}}
   <div class="col-md-12 media" id="{{id_commentary}}">
     <div class="media-body">
-      <h4 class="media-heading title">{{nombre}}</h4>
-      <h5 class="media-subheading points">Puntaje: {{puntaje}}</h5>
+      <h4 class="media-heading title">{{name}}</h4>
+      <h5 class="media-subheading points">Puntaje: {{qualification}}</h5>
       <p>{{comentario}}</p>
-        <!-- <a class="js-edit" data-idcomment="{{id_commentary}}"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a> revisar para que aparesca el editar -->
+        <!-- <a class="js-edit" data-idcommentary="{{id_commentary}}"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a> revisar para que aparesca el editar -->
       {{#isSuperUser}}
-        <a class="js-delete" data-idcomment="{{id_commentary}}"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a>
+        <a class="js-delete" data-idcommentary="{{id_commentary}}"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a>
       {{/isSuperUser}}
     </div>
   </div>

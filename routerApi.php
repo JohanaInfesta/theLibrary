@@ -11,6 +11,4 @@ $router->addRoute("commentary", "POST", "CommentaryApiController", "createCommen
 $router->addRoute("commentary/:id","PUT", "CommentaryApiController", "editCommentary");
 
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
-
-
  ?>

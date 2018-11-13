@@ -50,6 +50,7 @@
           <label for="imagen">Imagen Libro:</label>
           <input type=file id="" name="images[]" accept="image/*" placeholder="url de la imagen" multiple {if !$book['id_book']} required{/if}>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LeiU3oUAAAAAP4WL-U5WqqZ6PU9JSWYA6GdSgcr"></div> <!--captcha -->
 
         <button type="submit" class="btn btn-outline-dark btn-categorias">Guardar Libro</button>
       </form>
