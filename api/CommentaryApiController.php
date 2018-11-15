@@ -1,7 +1,7 @@
 <?php
 
 require_once "ApiController.php";
-require_once "./model/CommentaryModel";
+require_once "../model/CommentaryModel.php";
 
 class CommetaryApiController extends ApiController{
 
@@ -34,8 +34,8 @@ class CommetaryApiController extends ApiController{
   function createCommentary($params = []){
     $body = $this->getData();
     $user = $body->user;
-    $comentario = $body->comentario;
-    $puntaje = $body->puntaje;
+    $commentary = $body->commentary;
+    $qualification = $body->qualification;
     $id_book = $body->id_book;
     $id_commentary = $this->model->addCommentary($user, $texto, $puntaje, $id_book);
     $commentary = $this->model->getCommentary($id_commentary);

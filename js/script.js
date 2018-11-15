@@ -257,3 +257,35 @@ function deleteAuthor(id_author) {
 function editAuthor(id_author) {
     navigate('http://localhost/theLibrary/editAuthor/' + id_author);
 }
+
+let templateCommentary;
+
+// llamado ajax para traer el template de tareas (en Smarty seria el .tpl)
+fetch('js/templates/commentary.handlebars')
+.then(response => response.text())
+.then(template => {
+    // compilo el template
+    templateCommentary = Handlebars.compile(template);
+
+    getCommentarys(id_book);
+});
+
+
+function getCommentarys(id_book) {
+    fetch('api/commentary/'+ id_book)
+    .then(response => {
+        if (response.ok)
+            return response.json();
+    })
+    .then(jsonCommentarys => renderCommentarys(jsonCommentarys));
+}
+
+function renderCommentarys(commentarys) {
+
+    // creamos el contexto (assign de smarty)
+    let context = {
+        tasks: commentarys
+    };
+    let html = templateCommentary(context);
+    document.querySelector("#listCommentary").innerHTML = html;
+}

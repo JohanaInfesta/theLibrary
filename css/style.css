@@ -14,7 +14,7 @@
 
 body {
     color: black;
-    background-color: #dfdfdf !important;    
+    background-color: #dfdfdf !important;
     font-family: "Montserrat", Helvetica, Arial, sans-serif !important;
     font-style: normal; font-weight: 300;
 }
@@ -48,7 +48,7 @@ body {
 }
 .custom_one_italic {
     font-family: "Montserrat", Helvetica, Arial, sans-serif !important;
-    font-style: normal; 
+    font-style: normal;
     font-weight: 700;
  }
  a, a:hover, a::selection, a:active{

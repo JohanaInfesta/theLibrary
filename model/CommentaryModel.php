@@ -21,15 +21,15 @@ class CommentaryModel{
     return $sentencia->fetch(PDO::FETCH_OBJ)
 
   }
-  function addCommentary($id_book, $id_user, $commentary, $qualification){
+  function addCommentary($commentary, $qualification, $id_book, $id_user,){
     $sentencia = $this->db_connection->prepare("INSERT INTO commentary(commentary, qualification, id_book_fk, id_user_fk) VALUES(?,?,?,?)");
     $sentencia->execute([$id_book, $id_user, $commentary, $qualification]);
   }
-  function editCommentary($){
-    // $sentencia = $this->db_connection->prepare("UPDATE ");   hacer bien
-    // $sentencia->execute([$]);
+  function editCommentary($id_commentary, $commentary){
+    $sentencia = $this->db_connection->prepare("UPDATE commentary SET commentary WHERE id_commentary =?");   hacer bien
+    $sentencia->execute([$]);
   }
-  function deleteCommentary($id){
+  function deleteCommentary($id_commentary, $commentary){
     $sentencia = $this->prepare("DELETE FROM commentary WHERE id_commentary=?");
     $sentencia->execute([$id])
   }

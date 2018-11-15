@@ -12,6 +12,7 @@
                         {if ($isLoggedIn)}
                             <a href="#" onclick="deleteBook({$book['id_book']})"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a>
                             <a href="#" onclick="editBook({$book['id_book']})"><i class="fa fa-edit fa-2x fa-fw" aria-hidden="true"></i></a>
+                            <a href="#" onclick="getCommentarys({$book['id_book']})"><i class="fa fa-comments fa-2x fa-fw" aria-hidden="true"></i></a>
                         {/if}
                     </div>
                     <img src="{$book['images'][0]['route']}" alt="Portada del libro {$book['name']}" class="book">
