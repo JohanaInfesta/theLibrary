@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid cuerpo-index">
   <div class="row">
     <div class="col-md-4 col-md-offset-4" id="mensajeRegistro">
     </div>
@@ -17,7 +17,7 @@
             <label for="password">Ingrese su contraseña</label>
             <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" value="" name="clave" required>
         </div>
-        <div>
+        <div class="form-group">        
             <label for="confirm_password">Confirme su contraseña</label>
             <input type="password" class="form-control" placeholder="Confirme su contraseña" value="" id="confirm_password" name="confirmarClave"required>
         </div>

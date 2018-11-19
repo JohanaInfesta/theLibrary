@@ -82,7 +82,18 @@ body {
     text-align: center;
     margin-top: 20px;
 }
+/*---    3.B. Login         ---*/
+.login, .registro{
+    text-align: center;
+}
 
+.form-group small{
+    color: #ffff;
+}
+.login button, .registro button{
+    padding:0.6em 1em;
+    
+}
 /*    3.C. Books            */
 .portada, .authors{
     display: inline-block;
