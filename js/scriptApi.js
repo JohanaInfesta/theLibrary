@@ -1,29 +1,28 @@
-"use strict"
+'use strict'
 let templateCommentary;
+
+let idbook =   document.querySelector(".id").id;
+
 fetch('js/templates/commentary.handlebars')
 .then(response => response.text())
-.then(template => { //template = nombre que quiero
-  templateCommentary = Handlebars.compile(template);//compila y deja listo para usar
-  //llamar funcion que muestra las tareas
-  getCommentarys();
+.then(template => {
+  templateCommentary = Handlebars.compile(template); // compila y prepara el template
+
+  getCommentarys(idbook);
 });
 
-function getCommentarys(){
-  fetch("api/commentary")
-  .then(response => {
-    if(response.ok)
-    return response.json();
+function getCommentarys() {
+  fetch("api/commentary" )
+  .then(response => response.json())
+  .then(jsonComentarios => {
+    viewCommentarys(jsonComentarios);
   })
-  .then(jsonCommentary => renderCommentary(jsonCommentary));
 }
 
-function renderCommentary(comentarios){
-  let context = {//como el assing de smarty
-    commentary: comentarios
+function viewCommentarys(jsonCommentarys) {
+  let context = { // como el assign de smarty
+    commentary: jsonComentarios
   }
-  let html = templateCommentary(context);
+  let html = templateComentarios(context);
   document.querySelector("#listCommentary").innerHTML = html;
-}
-function postCommentary(form, event){
-
 }

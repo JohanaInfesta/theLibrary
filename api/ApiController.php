@@ -1,24 +1,22 @@
 <?php
-
 require_once 'JSONView.php';
 
 abstract class ApiController {
 
-  protected $model;
-  protected $view;
+    protected $model;
+    protected $view;
 
-  private $data;
+    private $raw_data;
 
-  public function __construct() {
+    public function __construct() {
+        $this->view = new JSONView();
+        $this->raw_data = file_get_contents("php://input"); //agarra el body en RAW
+    }
 
-    $this->view = new JSONView();
-    $this->data = file_get_contents("php://input");
-  }
-
-  protected function getData(){
-    return json_decode($this->data);
-  }
+    protected function getData() {
+        return json_decode($this->raw_data);
+    }
 
 }
 
-?>
+ ?>
