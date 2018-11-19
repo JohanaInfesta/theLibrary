@@ -12,6 +12,9 @@ class CommetaryApiController extends ApiController{
 
   function getCommentarys($id_book){
     $commentary = $this->$model->getCommentarys();
+    echo "<script>console.log('1' );</script>";
+
+
     if (isset($commentary)) {
       return $this->json_response($commentary, 200);
     }else {

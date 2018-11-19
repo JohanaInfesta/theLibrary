@@ -10,7 +10,8 @@ class CommentaryModel{
     , 'root', '');
   }
   function getCommentarys($id_book){
-    $sentencia = $this->db_connection->prepare( "SELECT * from commentary WHERE id_book_fk=?");
+// "SELECT commentary, * FROM commentary ORDER BY qualification.id ASC LIMIT =? WHERE id_book_fk =? "//DESC LIMIT // mirar
+    $sentencia = $this->db_connection->prepare( "SELECT * FROM commentary WHERE id_book_fk =?");
     $sentencia->execute([$id_book]);
     return $sentencia->fetchAll(PDO::FETCH_OBJ);
 
