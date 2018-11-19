@@ -17,7 +17,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#" onclick="navigate('http://localhost/theLibrary/')">The Library</a>
+      <a class="navbar-brand" href="#" onclick="navigate('http://localhost/theLibrary/booksList')">The Library</a>
       {if $isLoggedIn}
       <a href="logout" class="btn btn-login">Sing out</a>
       {else}
@@ -30,7 +30,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link"  onclick="navigate('http://localhost/theLibrary/')" href="#">All books <span class="sr-only">(current)</span></a>
+            <a class="nav-link"  onclick="navigate('http://localhost/theLibrary/booksList')" href="#">All books <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item dropdown authorsDropdown">
             <a class="nav-link dropdown-toggle" onclick="navigate('http://localhost/theLibrary/allAuthors')" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,7 +73,7 @@
   <footer class="container footer">
     <div class="row">
       <div class="col-md-4 col-sm-6 footer-navigation">
-        <a href="#" onclick="navigate('http://localhost/theLibrary/')" ><h3>  The Library </h3></a>
+        <a href="#" onclick="navigate('http://localhost/theLibrary/booksList')" ><h3>  The Library </h3></a>
         <p class="company-name">The Library © 2018</p>
       </div>
       <div class="col-md-4 col-sm-6 footer-contacts">

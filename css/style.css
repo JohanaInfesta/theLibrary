@@ -110,10 +110,12 @@ body {
 .itemBox .itemName{
     display: inline;
 }
+/*---    3.E. ABM           ---*/
 
 .cuerpo-form{
     margin: auto;
 }
+
 
 #mensajeForm{
     top: 15px;
