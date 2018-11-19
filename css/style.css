@@ -58,7 +58,23 @@ body {
  .authorsDropdown:hover .dropdown-menu {
      display: block;
  }
+ .progress {
+    background-color: transparent;
+}
 
+.progress-bar {
+    animation: progress 3s ease-out forwards, progress-bar-stripes 2s linear infinite;
+}
+
+@keyframes progress {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
 /*--- 3. Conteiners-cuerpo  ---*/
 /*    3.A. Index            */
 
@@ -103,3 +119,58 @@ body {
     top: 15px;
     bottom: 15px;
 }
+/*--- 4. Footer            ---*/
+footer {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    width: 100%;
+    padding: 55px 50px;
+    margin-top: 80px;
+    bottom: 0;
+    font-weight: bolder;
+    text-align: center;
+}
+.footer-navigation a h3 {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+.footer-navigation a {
+    text-decoration: none;
+}
+.footer-navigation p.company-name {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 20px;
+}
+@media (max-width:767px) {
+    .footer-contacts {
+        margin: 30px 0;
+    }
+}
+.footer-about h4 {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.footer .form-control,
+.footer .btn-default {
+    margin: 10px 0 10px 0;
+}
+div.social-links {
+    margin-top: 20px;
+}
+.social-links a {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 1;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.social-links a:hover {
+    color:gray;
+}
+
+

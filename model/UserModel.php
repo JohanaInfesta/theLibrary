@@ -59,7 +59,7 @@ class UserModel extends Model
   static function isSuperUser(){
     $user = $_SESSION['USER'];
     if ($user)
-      return (boolean) $user['super_user'];
+      return (boolean) $user['is_admin'];
     return false;
   }
 }
