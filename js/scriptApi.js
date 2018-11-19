@@ -24,3 +24,6 @@ function renderCommentary(comentarios){
   let html = templateCommentary(context);
   document.querySelector("#listCommentary").innerHTML = html;
 }
+function postCommentary(form, event){
+
+}

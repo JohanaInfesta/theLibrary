@@ -3,11 +3,11 @@
   <div class="col-md-8 col-md-offset-2" id="mensaje"></div>
 </div>
 <div class="row">
-  {{if isLoggedIn}}
+  {{#if isLoggedIn}}
   <div class="col">
-    <form class="formCommentary" method="post" onsubmit="saveCommentary(this, event)">
-      <input type="hidden" id="id_book" name="id_book" value="{$commentary['id_book_fk']}">
-      <input type="hidden" id="id_book" name="id_user" value="{$commentary['id_user_fk']}">
+    <form class="formCommentary" method="post" onsubmit="postCommentary(this, event)">
+      <input type="hidden" id="id_book" name="id_book" value="{{id_book_fk}}">
+      <input type="hidden" id="id_book" name="id_user" value="{{id_user_fk}}">
       <div class="form-group">
         <label for="commentary">Comentario: </label>
         <textarea name="commentary" id="commentary" rows="8" cols="50" required></textarea>
