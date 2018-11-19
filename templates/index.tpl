@@ -45,12 +45,15 @@
             </div>
           </li>
           {if $isLoggedIn}
-          <li class="nav-item">
-            <a class="nav-link" onclick="navigate('http://localhost/theLibrary/addBook')" href="#">Add book</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="navigate('http://localhost/theLibrary/addAuthor')" href="#">Add author</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="navigate('http://localhost/theLibrary/addBook')" href="#">Add book</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="navigate('http://localhost/theLibrary/addAuthor')" href="#">Add author</a>
+            </li>
+            {if $isSuperUser}
+              <li class="nav-item" role="presentation"><a class="nav-link" href="#" onclick="navigate('http://localhost/theLibrary/adminUsers')">Admin Usuarios</a></li>
+            {/if}
           {/if}
         </ul>
       </div>
