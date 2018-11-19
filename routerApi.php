@@ -11,7 +11,7 @@ include_once 'view/CommentaryView.php';
 $router = new Router();
 
 // rutas de la api
-$router->addRoute("commentary/:id_book", "GET", "CommentaryApiController", "getCommentarys");
+$router->addRoute("commentary", "GET", "CommentaryApiController", "getCommentarys");
 $router->addRoute("commentary/:id", "DELETE", "CommentaryApiController", "deleteCommentary");
 $router->addRoute("commentary", "POST", "CommentaryApiController", "createCommentary");
 $router->addRoute("commentary/:id","PUT", "CommentaryApiController", "editCommentary");
