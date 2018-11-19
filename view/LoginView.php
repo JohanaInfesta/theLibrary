@@ -11,8 +11,9 @@ class LoginView extends View
     $this->smarty->display('templates/registro.tpl');
   }
 
-  function mostrarListaUsers($users){
+  function mostrarListaUsers($users, $userLog){
     $this->smarty->assign('users', $users);
+    $this->smarty->assign('userLog', $userLog);    
     $this->smarty->display('templates/listaUsers.tpl');
   }
 }

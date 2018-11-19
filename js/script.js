@@ -27,7 +27,7 @@ function navigate(url) {
             console.error(err);
           }
         })
-      }else{
+      }else if(id_user != this.id_user){
         $.ajax({
           url: 'http://localhost/theLibrary/permisoSuperUser/'+ id_user + '/0',
           type: "POST",
@@ -149,7 +149,7 @@ function deleteBook(id_book) {
       console.error(err);
     }
   })
-  
+
 }
 
 function saveBook(form, event) {

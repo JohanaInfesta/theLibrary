@@ -93,7 +93,8 @@ class LoginController extends Controller
 
   public function listaUsers(){
     $users = $this->model->getUsers();
-    $this->view->mostrarListaUsers($users);
+    $userLog = $this->model->getUserLog();
+    $this->view->mostrarListaUsers($users, $userLog);
   }
 }
 

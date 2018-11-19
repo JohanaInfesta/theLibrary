@@ -16,6 +16,12 @@ class UserModel extends Model
     $sentence->execute([$userMail]);
     return $sentence->fetch();
   }
+
+  function getUserLog(){
+    session_start();
+    $user = $_SESSION['USER'];
+    return $user;
+  }
   
   function userExist($userMail){
     $sentence = $this->db->prepare("SELECT * FROM user WHERE mail = ? LIMIT 1");
@@ -34,8 +40,8 @@ class UserModel extends Model
   }
 
   function editPermissionSuper($id_user, $permisoSuper){
-    $sentence = $this->db->prepare('UPDATE user SET is_admin = ?  WHERE id_user = ?');
-    $sentence->execute([$permisoSuper, $id_user]);
+      $sentence = $this->db->prepare('UPDATE user SET is_admin = ?  WHERE id_user = ?');
+      $sentence->execute([$permisoSuper, $id_user]);
   }
 
   /**
