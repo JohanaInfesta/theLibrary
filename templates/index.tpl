@@ -36,7 +36,7 @@
             <a class="nav-link dropdown-toggle" onclick="navigate('http://localhost/theLibrary/allAuthors')" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               All authors
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="authors">
               {foreach from=$authors item=author}
               <a class="dropdown-item" href="#" onclick="navigatePost('http://localhost/theLibrary/author', {ldelim}id_author:{$author['id_author']}{rdelim})">
                 {$author['name']} {$author['surname']}
@@ -60,9 +60,9 @@
     </nav>
   </header>
 
-  <div class="col-md-12 main-content">
+  <div class="main-content">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col">
         <div class="progress">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; background-color: #927986;"></div>
         </div>

@@ -156,7 +156,6 @@ function saveBook(form, event) {
   event.preventDefault();
 
   var form_data = new FormData(form);
-
   $.ajax({
     url: 'http://localhost/theLibrary/saveBook',
     contentType: false,
@@ -183,7 +182,7 @@ function editBook(id_book) {
 }
 
 function deleteImage(id_image) {
-
+  
   $.ajax({
     url: 'http://localhost/theLibrary/deleteBookImage/' + id_image,
     type: "DELETE",
@@ -207,9 +206,8 @@ function deleteImage(id_image) {
 
 function saveAuthor(form, event) {
   event.preventDefault();
-
+  
   let form_data = new FormData(form);
-
   $.ajax({
     url: 'http://localhost/theLibrary/saveAuthor',
     contentType: false,
@@ -217,8 +215,8 @@ function saveAuthor(form, event) {
     data: form_data,
     type: "POST",
     success: function (res) {
-      console.log(JSON.parse(res));
-      res = JSON.parse(res);
+      console.log(res);
+      reloadAuthors();  
       if (res.message) {
         $("#mensajeForm").html($('<div class="alert alert-success " role="alert"></div>').append(res.message));
       } else if (res.error) {
@@ -229,6 +227,7 @@ function saveAuthor(form, event) {
       console.error(err);
     }
   });
+  
 }
 
 function deleteAuthor(id_author) {
@@ -239,9 +238,9 @@ function deleteAuthor(id_author) {
     success: function (res) {
       $('#' + id_author).remove();
       console.log(JSON.parse(res));
+      reloadAuthors();  
       res = JSON.parse(res);
       if (res.message) {
-        navigate('http://localhost/theLibrary/allAuthors');
         $("#mensaje").html($('<div class="alert alert-success" role="alert"></div>').append(res.message));
       } else if (res.error) {
         $("#mensaje").html($('<div class="alert alert-danger" role="alert"></div>').append(res.error));
@@ -250,9 +249,13 @@ function deleteAuthor(id_author) {
     error: function (err) {
       console.error(err);
     }
-  })
+  });
 }
 
 function editAuthor(id_author) {
   navigate('http://localhost/theLibrary/editAuthor/' + id_author);
+}
+
+function reloadAuthors(){
+  window.location = 'http://localhost/theLibrary/';
 }

@@ -1,4 +1,4 @@
-<div class="container cuerpo-form">
+<div class="container-fluid cuerpo-form">
   <div class="row">
     <div class="col-md-4 col-md-offset-4" id="">
     </div>
