@@ -3,9 +3,12 @@
 require_once "ApiController.php";
 require_once "./../model/CommentaryModel.php";
 
-class CommetaryApiController extends ApiController{
+class CommetaryApiController extends Controller{
+
+  protected $model;
 
   function __construct(){
+
     parent::__construct();
     $this->model = new CommentaryModel();
   }
@@ -38,21 +41,19 @@ class CommetaryApiController extends ApiController{
     $qualification = $_POST['qualification'];
     $id_book_fk = $_POST['id_book_fk'];
     $id_user_fk = $_POST['id_user_fk'];
-    if ($id_commentary != null) {
-      $this->model->editCommentary($id_commentary, $commentary);
-    }else{
-      $this->model->addCommentary($commentary, $qualification, $id_book, $id_user)
-    }
+    // if ($id_commentary != null) {
+    //   $this->model->editCommentary($id_commentary, $commentary);
+    // }else{
+    //   $this->model->addCommentary($commentary, $qualification, $id_book, $id_user)
+    // }
   }
 
   function editCommentary($params){
-    if (UserModel::isLoggedIn()) {
-      $id_commentary = $params
-      $commentary = $this->model->getCommentary($id_commentary);
-      // $this->view->viewFormCommentary($commentary);
-    }
+    //   if (UserModel::isLoggedIn()) {
+    //     $id_commentary = $params
+    //     $commentary = $this->model->getCommentary($id_commentary);
+    //     // $this->view->viewFormCommentary($commentary);
+    //   }
+    // }
   }
-}
-
-
-?>
+  ?>
