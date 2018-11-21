@@ -38,19 +38,17 @@ class CommetaryApiController extends ApiController{
   function createCommentary(){
     $id_commentary = $_POST['id_commentary'];
     $commentary = $_POST['commentary'];
-    $qualification = $_POST['qualification'];
+    $score = $_POST['score'];
     $id_book_fk = $_POST['id_book_fk'];
     $id_user_fk = $_POST['id_user_fk'];
-<<<<<<< HEAD
     if ($id_commentary != null) {
       $this->model->editCommentary($id_commentary, $commentary);
     }else{
-      $this->model->addCommentary($commentary, $qualification, $id_book, $id_user);
-=======
+      $this->model->addCommentary($commentary, $score, $id_book, $id_user);
     // if ($id_commentary != null) {
     //   $this->model->editCommentary($id_commentary, $commentary);
     // }else{
-    //   $this->model->addCommentary($commentary, $qualification, $id_book, $id_user)
+    //   $this->model->addCommentary($commentary, $score, $id_book, $id_user)
     // }
   }
 
@@ -60,7 +58,6 @@ class CommetaryApiController extends ApiController{
     //     $commentary = $this->model->getCommentary($id_commentary);
     //     // $this->view->viewFormCommentary($commentary);
     //   }
->>>>>>> abc20e4c34afd70b9ccff5cb45aababe3d318530
     }
   }
 }

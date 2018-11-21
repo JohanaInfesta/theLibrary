@@ -3,7 +3,7 @@
 class CommentaryModel{
 
   function getCommentarys($id_book){
-// "SELECT commentary, * FROM commentary ORDER BY qualification.id ASC LIMIT =? WHERE id_book_fk =? "//DESC LIMIT // mirar
+// "SELECT commentary, * FROM commentary ORDER BY score.id ASC LIMIT =? WHERE id_book_fk =? "//DESC LIMIT // mirar
     $sentencia = $this->db->prepare( "SELECT * FROM commentary WHERE id_book = ?");
     $sentencia->execute([$id_book]);
     return  $sentencia->fetchALL(PDO::FETCH_ASSOC);
@@ -16,9 +16,9 @@ class CommentaryModel{
     return $sentencia->fetch();
   }
 
-  function addCommentary($commentary, $qualification, $id_book, $id_user){
-    $sentencia = $this->db->prepare("INSERT INTO commentary(commentary, qualification, id_book_fk, id_user_fk) VALUES(?,?,?,?)");
-    $sentencia->execute([$id_book, $id_user, $commentary, $qualification]);
+  function addCommentary($commentary, $score, $id_book, $id_user){
+    $sentencia = $this->db->prepare("INSERT INTO commentary(commentary, score, id_book_fk, id_user_fk) VALUES(?,?,?,?)");
+    $sentencia->execute([$id_book, $id_user, $commentary, $score]);
     $id_commentary = $this->db->lastInsertId();
   }
 
