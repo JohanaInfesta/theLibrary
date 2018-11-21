@@ -41,13 +41,13 @@ class CommetaryApiController extends ApiController{
     if ($id_commentary != null) {
       $this->model->editCommentary($id_commentary, $commentary);
     }else{
-      $this->model->addCommentary($commentary, $qualification, $id_book, $id_user)
+      $this->model->addCommentary($commentary, $qualification, $id_book, $id_user);
     }
   }
 
   function editCommentary($params){
     if (UserModel::isLoggedIn()) {
-      $id_commentary = $params
+      $id_commentary = $params;
       $commentary = $this->model->getCommentary($id_commentary);
       // $this->view->viewFormCommentary($commentary);
     }

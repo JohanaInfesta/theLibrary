@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-10-2018 a las 20:50:55
+-- Tiempo de generación: 21-11-2018 a las 23:20:32
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 7.1.10
 
@@ -29,7 +29,7 @@ USE `library`;
 --
 -- Estructura de tabla para la tabla `author`
 --
--- Creación: 18-10-2018 a las 16:50:56
+-- Creación: 21-11-2018 a las 21:57:31
 --
 
 CREATE TABLE IF NOT EXISTS `author` (
@@ -43,12 +43,16 @@ CREATE TABLE IF NOT EXISTS `author` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `author`:
+--
+
+--
 -- Volcado de datos para la tabla `author`
 --
 
 INSERT INTO `author` (`id_author`, `name`, `surname`, `nationality`, `biography`, `route`) VALUES
-(1, 'Veronica', 'Roth', 'estadounidense', "Veronica Roth nació el 19 de agosto de 1988, en Chicago, la misma ciudad donde se desarrolla este libro. Estudió Escritura Creativa en la Universidad de Northwestern, donde decidió empezar a hacer un borrador de Divergente, en vez de hacer los deberes que le mandaban. Viendo el éxito que ha conseguido con Divergente e Insurgente, fue una buena elección. Actualmente vive cerca de Chicago y se dedica a la escritura a tiempo completo.", 'images/veronicaRoth.jpg'),
-(2, 'Stephanie', 'Perkins', 'estadounidense', "Stephanie Perkins nació en Carolina del Sur, creció en Arizona y fue a la universidad en San Francisco y Atlanta. Siempre ha trabajado con libros: primero como librera, después como bibliotecaria y ahora como escritora de literatura juvenil. En la actualidad vive en las montañas de Carolina del Norte con su marido, sus dos perros y su gato, en una casa en la que cada una de las habitaciones está pintada de un color del arco iris.", 'images/stephaniePerkins.jpg'),
+(1, 'Veronica', 'Roth', 'estadounidense', 'Veronica Roth nació el 19 de agosto de 1988, en Chicago, la misma ciudad donde se desarrolla este libro. Estudió Escritura Creativa en la Universidad de Northwestern, donde decidió empezar a hacer un borrador de Divergente, en vez de hacer los deberes que le mandaban. Viendo el éxito que ha conseguido con Divergente e Insurgente, fue una buena elección. Actualmente vive cerca de Chicago y se dedica a la escritura a tiempo completo.', 'images/veronicaRoth.jpg'),
+(2, 'Stephanie', 'Perkins', 'estadounidense', 'Stephanie Perkins nació en Carolina del Sur, creció en Arizona y fue a la universidad en San Francisco y Atlanta. Siempre ha trabajado con libros: primero como librera, después como bibliotecaria y ahora como escritora de literatura juvenil. En la actualidad vive en las montañas de Carolina del Norte con su marido, sus dos perros y su gato, en una casa en la que cada una de las habitaciones está pintada de un color del arco iris.', 'images/stephaniePerkins.jpg'),
 (3, 'Gayle', 'Forman', 'estadounidense', "Gayle Forman es una escritora conocida por su novela Si decido quedarme y que también ha trabajado como periodista para Glamour, Elle, Cosmopolitan, Seventeen y The New York Times Magazine.También ha escrito otras novelas como 'You can't get there from here Sisters in Sanity' o 'Solo un día'.", 'images/gayleForman.jpg');
 
 -- --------------------------------------------------------
@@ -56,7 +60,7 @@ INSERT INTO `author` (`id_author`, `name`, `surname`, `nationality`, `biography`
 --
 -- Estructura de tabla para la tabla `book`
 --
--- Creación: 18-10-2018 a las 16:50:59
+-- Creación: 21-11-2018 a las 21:57:34
 --
 
 CREATE TABLE IF NOT EXISTS `book` (
@@ -72,6 +76,12 @@ CREATE TABLE IF NOT EXISTS `book` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `book`:
+--   `id_author`
+--       `author` -> `id_author`
+--
+
+--
 -- Volcado de datos para la tabla `book`
 --
 
@@ -85,9 +95,46 @@ INSERT INTO `book` (`id_book`, `name`, `gender`, `editorial`, `id_author`, `revi
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comment`
+--
+-- Creación: 21-11-2018 a las 22:10:02
+--
+
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id_comment` int(11) NOT NULL AUTO_INCREMENT,
+  `comment` text CHARACTER SET latin1 NOT NULL,
+  `score` int(11) NOT NULL,
+  `id_book` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  PRIMARY KEY (`id_comment`),
+  KEY `id_book` (`id_book`),
+  KEY `id_user` (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- RELACIONES PARA LA TABLA `comment`:
+--   `id_book`
+--       `book` -> `id_book`
+--   `id_user`
+--       `user` -> `id_user`
+--
+
+--
+-- Volcado de datos para la tabla `comment`
+--
+
+INSERT INTO `comment` (`id_comment`, `comment`, `score`, `id_book`, `id_user`) VALUES
+(1, 'Me encanto, Tris es lo más!', 5, 1, 1),
+(2, 'Aburridoooo!', 2, 1, 2),
+(3, 'Podria ser mejor.', 2, 4, 1),
+(4, 'Me encanto!', 5, 3, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `image`
 --
--- Creación: 18-10-2018 a las 18:49:18
+-- Creación: 21-11-2018 a las 21:57:35
 --
 
 CREATE TABLE IF NOT EXISTS `image` (
@@ -97,6 +144,12 @@ CREATE TABLE IF NOT EXISTS `image` (
   PRIMARY KEY (`id_image`),
   KEY `fk_id_book` (`id_book`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `image`:
+--   `id_book`
+--       `book` -> `id_book`
+--
 
 --
 -- Volcado de datos para la tabla `image`
@@ -114,7 +167,7 @@ INSERT INTO `image` (`id_image`, `id_book`, `route`) VALUES
 --
 -- Estructura de tabla para la tabla `user`
 --
--- Creación: 18-10-2018 a las 16:50:57
+-- Creación: 21-11-2018 a las 21:57:32
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -122,16 +175,21 @@ CREATE TABLE IF NOT EXISTS `user` (
   `name` varchar(100) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `is_admin` tinyint(4) NOT NULL DEFAULT '1',
+  `is_admin` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `user`:
+--
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
 INSERT INTO `user` (`id_user`, `name`, `mail`, `pass`, `is_admin`) VALUES
-(1, 'Antonela', 'antonela@library.php', '$2y$10$EvOuDZm9WXWkYG8ahcx7su5VazCFH7YOgpKxEddWBUAHY.H7D/qaC', 1);
+(1, 'Antonela', 'antonela@library.php', '$2y$10$EvOuDZm9WXWkYG8ahcx7su5VazCFH7YOgpKxEddWBUAHY.H7D/qaC', 1),
+(2, 'Choy', 'choy@library.php', '$2y$10$EvOuDZm9WXWkYG8ahcx7su5VazCFH7YOgpKxEddWBUAHY.H7D/qaC', 0);
 
 --
 -- Restricciones para tablas volcadas
@@ -142,6 +200,13 @@ INSERT INTO `user` (`id_user`, `name`, `mail`, `pass`, `is_admin`) VALUES
 --
 ALTER TABLE `book`
   ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`id_author`) REFERENCES `author` (`id_author`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`id_book`) REFERENCES `book` (`id_book`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `image`

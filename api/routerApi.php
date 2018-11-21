@@ -1,6 +1,6 @@
 <?php
   // require_once 'Router.php';
-  require_once 'config/ConfigApi.php'
+  require_once 'config/ConfigApi.php';
   require_once 'controller/CommentaryApiController.php';
   // include_once 'model/Model.php';
   // include_once 'model/CommentaryModel.php';
