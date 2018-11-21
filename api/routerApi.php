@@ -1,18 +1,9 @@
 <?php
-<<<<<<< HEAD
-  // require_once 'Router.php';
-  require_once 'config/ConfigApi.php';
-  require_once 'controller/CommentaryApiController.php';
-  // include_once 'model/Model.php';
-  // include_once 'model/CommentaryModel.php';
-  // include_once 'controller/Controller.php';
-=======
 require_once "config/ConfigApi.php";
 require_once "controller/CommentaryApiController.php";
 require_once '../model/Model.php';
 require_once '../model/CommentaryModel.php';
 require_once '../controller/Controller.php';
->>>>>>> df43c059a913062492899eeae5095c355ca9eb83
 
 
 function parseURL($url)

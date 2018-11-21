@@ -41,21 +41,6 @@ class CommetaryApiController extends Controller{
     $qualification = $_POST['qualification'];
     $id_book_fk = $_POST['id_book_fk'];
     $id_user_fk = $_POST['id_user_fk'];
-<<<<<<< HEAD
-    if ($id_commentary != null) {
-      $this->model->editCommentary($id_commentary, $commentary);
-    }else{
-      $this->model->addCommentary($commentary, $qualification, $id_book, $id_user);
-    }
-  }
-
-  function editCommentary($params){
-    if (UserModel::isLoggedIn()) {
-      $id_commentary = $params;
-      $commentary = $this->model->getCommentary($id_commentary);
-      // $this->view->viewFormCommentary($commentary);
-    }
-=======
     // if ($id_commentary != null) {
     //   $this->model->editCommentary($id_commentary, $commentary);
     // }else{
@@ -69,7 +54,6 @@ class CommetaryApiController extends Controller{
     //     $commentary = $this->model->getCommentary($id_commentary);
     //     // $this->view->viewFormCommentary($commentary);
     //   }
-    // }
->>>>>>> df43c059a913062492899eeae5095c355ca9eb83
+    }
   }
   ?>
