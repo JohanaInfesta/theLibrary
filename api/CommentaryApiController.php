@@ -11,11 +11,12 @@ class CommetaryApiController extends ApiController{
   }
 
   function getCommentarys($id_book){
-    if (empty($id_book)) {
-      $commentary = $this->$model->getCommentarys($id_book);
-      $commentary->view-> response ( $commentary ,  200 );
+    if ( isset ( $_GET ['id_book'])) {
+      $id_book = $_GET['id_book'];
+      $data = $this->model->getCommentarys();
+      return $this -> json_response ( $data , 200 );
     }else {
-      $commentary->view-> response (null, 404);
+      return $this -> json_response ( null , 404 );
     }
   }
 
@@ -31,20 +32,25 @@ class CommetaryApiController extends ApiController{
     }
   }
 
-  function createCommentary($params = []){
-    $body = $this->getData();
-    $user = $body->user;
-    $commentary = $body->commentary;
-    $qualification = $body->qualification;
-    $id_book = $body->id_book;
-    $id_commentary = $this->model->addCommentary($user, $texto, $puntaje, $id_book);
-    $commentary = $this->model->getCommentary($id_commentary);
-
-
+  function createCommentary(){
+    $id_commentary = $_POST['id_commentary'];
+    $commentary = $_POST['commentary'];
+    $qualification = $_POST['qualification'];
+    $id_book_fk = $_POST['id_book_fk'];
+    $id_user_fk = $_POST['id_user_fk'];
+    if ($id_commentary != null) {
+      $this->model->editCommentary($id_commentary, $commentary);
+    }else{
+      $this->model->addCommentary($commentary, $qualification, $id_book, $id_user)
+    }
   }
 
-  function editCommentary($id){
-
+  function editCommentary($params){
+    if (UserModel::isLoggedIn()) {
+      $id_commentary = $params
+      $commentary = $this->model->getCommentary($id_commentary);
+      // $this->view->viewFormCommentary($commentary); 
+    }
   }
 }
 
