@@ -8,10 +8,10 @@ fetch('js/templates/commentary.handlebars')
 .then(template => {
   templateCommentary = Handlebars.compile(template); // compila y prepara el template
 
-  getCommentarys(idbook);
+  getCommentarys();
 });
 
-function getCommentarys(id_book) {
+function getCommentarys() {
   fetch("api/commentary")
   .then(response => response.json())
   .then(jsonComentarios => {
@@ -34,14 +34,18 @@ function saveCommentary(form, event){
   var form_data = new FormData(form);
   console.log(form, form_data);
   if(form_data){
-    fetch(url,{
+    fetch("api/commentary",{
       method : 'POST',
-      mode : 'cors',
-      headers:{
-        "Content-Type":"application/json"
-      },
+      headers:{"Content-Type":"application/json"},
       body: JSON.stringify(form_data)
-    }).then(getCommentarys())
+    }).then(r => getCommentarys())
     .catch(error => console.log(error))
   }
+}
+
+function deleteCommentary(id_commentary){
+  fetch("api/commentary"+id_commentary, {
+    method : 'DELETE',
+    headers:{"Content-Type":"application/json"},
+  }).then(r => getCommentarys())
 }

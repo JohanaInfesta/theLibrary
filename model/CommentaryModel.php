@@ -2,13 +2,6 @@
 
 class CommentaryModel{
 
-  private $db;
-
-  function __construct(){
-    $this->db = new PDO('mysql:host=localhost;'
-    .'dbname=library;charset=utf8'
-    , 'root', '');
-  }
   function getCommentarys($id_book){
 // "SELECT commentary, * FROM commentary ORDER BY qualification.id ASC LIMIT =? WHERE id_book_fk =? "//DESC LIMIT // mirar
     $sentencia = $this->db->prepare( "SELECT * FROM commentary WHERE id_book = ?");

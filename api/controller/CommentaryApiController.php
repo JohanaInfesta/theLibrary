@@ -1,7 +1,7 @@
 <?php
 
 require_once "ApiController.php";
-require_once "../model/CommentaryModel.php";
+require_once "./../model/CommentaryModel.php";
 
 class CommetaryApiController extends ApiController{
 
@@ -49,7 +49,7 @@ class CommetaryApiController extends ApiController{
     if (UserModel::isLoggedIn()) {
       $id_commentary = $params
       $commentary = $this->model->getCommentary($id_commentary);
-      // $this->view->viewFormCommentary($commentary); 
+      // $this->view->viewFormCommentary($commentary);
     }
   }
 }
