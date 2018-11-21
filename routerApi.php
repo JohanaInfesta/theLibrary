@@ -10,8 +10,8 @@
   function parseURL($url)
   {
     $urlExploded = explode('/', $url);
-    $arrayReturn[ConfigApp::$RESOURCE] = $urlExploded[RESOURCE]. '#' .$_SERVER['REQUEST_METHOD'];
-    $arrayReturn[ConfigApp::$PARAMS] = isset($urlExploded[VALOR1]) ? array_slice($urlExploded,1) : null;
+    $arrayReturn[ConfigApp::$RESOURCE] = $urlExploded[0]. '#' .$_SERVER['REQUEST_METHOD'];
+    $arrayReturn[ConfigApp::$PARAMS] = isset($urlExploded[1]) ? array_slice($urlExploded,1) : null;
     return $arrayReturn;
   }
 

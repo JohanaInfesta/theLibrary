@@ -1,5 +1,6 @@
 'use strict'
-document.addEventListener("DOMContentLoaded", getCommentarys);
+// document.addEventListener("DOMContentLoaded", getCommentarys);
+let idbook =   document.querySelector(".id").id;
 let templateCommentary;
 
 fetch('js/templates/commentary.handlebars')
@@ -7,13 +8,12 @@ fetch('js/templates/commentary.handlebars')
 .then(template => {
   templateCommentary = Handlebars.compile(template); // compila y prepara el template
 
-  getCommentarys();
+  getCommentarys(idbook);
 });
 
-function getCommentarys() {
-  let idbook =   document.querySelector(".id").id;
-
-  fetch("api/commentary/" + idbook)
+function getCommentarys(id_book) {
+console.log("api/commentary");
+  fetch("api/commentary")
   .then(response => response.json())
   .then(jsonComentarios => {
     viewCommentarys(jsonComentarios);
