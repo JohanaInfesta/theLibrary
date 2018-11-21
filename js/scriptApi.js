@@ -12,7 +12,6 @@ fetch('js/templates/commentary.handlebars')
 });
 
 function getCommentarys(id_book) {
-console.log("api/commentary");
   fetch("api/commentary")
   .then(response => response.json())
   .then(jsonComentarios => {
