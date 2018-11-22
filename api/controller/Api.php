@@ -1,10 +1,8 @@
 <?php
-class  ApiController{
-
-  protected $data;
+abstract class  Api{
 
   function __construct(){
-    $this->data = file_get_contents("php://input");
+
   }
 
   public function json_response($data, $status) {
@@ -24,8 +22,5 @@ class  ApiController{
      return ($status[$code])? $status[$code] : $status[500];
    }
 
-   function getJSONData(){
-    return json_decode($this->data);
-  }
 }
 ?>
