@@ -1,13 +1,13 @@
 
-{{#each commentary}}
-  <div class="col-md-12 media" id="{{id_commentary}}">
+{{#each comments}}
+  <div class="col-md-12 media" id="{{id_comment}}">
     <div class="media-body">
       <h4 class="media-heading title">{{name}}</h4>
-      <h5 class="media-subheading points">Puntaje: {{qualification}}</h5>
-      <p>{{comentario}}</p>
+      <h5 class="media-subheading points">Puntaje: {{score}}</h5>
+      <p>{{comment}}</p>
         <!-- <a class="js-edit" data-idcommentary="{{id_commentary}}"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a> revisar para que aparesca el editar -->
       {{#isSuperUser}}
-        <a class="js-delete" data-idcommentary="{{id_commentary}}"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a>
+        <a class="js-delete" data-idcommentary="{{id_comment}}"><i class="fa fa-trash fa-2x fa-fw" aria-hidden="true"></i></a>
       {{/isSuperUser}}
     </div>
   </div>
