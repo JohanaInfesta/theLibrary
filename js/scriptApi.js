@@ -12,11 +12,16 @@ fetch('js/templates/commentary.handlebars')
 });
 
 function getCommentarys() {
+<<<<<<< HEAD
   fetch(idbook + "/api/commentary")
   .then(response => {
     
     return response;
   })
+=======
+  fetch("api/commentary")
+  .then(response => response.json())
+>>>>>>> e4e3e8dbb794a5a906c8ee079714c4b63d1e629c
   .then(jsonComentarios => {
     viewCommentarys(jsonComentarios);
   })
