@@ -5,8 +5,8 @@ define('PARAMS', 1);
 
 require_once "config/ConfigApi.php";
 require_once "controller/CommentaryApi.php";
-// require_once '../model/Model.php';
-// require_once '../model/CommentaryModel.php';
+require_once '../model/Model.php';
+require_once '../model/CommentaryModel.php';
 // require_once '../controller/Controller.php';
 
 
@@ -22,9 +22,9 @@ if(isset($_GET['resource'])){
   $resource = $urlData[ConfigApi::$RESOURCE];
   if(array_key_exists($resource,ConfigApi::$RESOURCES)){
     $params = $urlData[ConfigApi::$PARAMS];
-    $controller_method = explode('#',ConfigApi::$RESOURCES[$resource]);
-    $controller =  new $controller_method[0]();
-    $metodo = $controller_method[1];
+    $resource = explode('#',ConfigApi::$RESOURCES[$resource]);
+    $controller =  new $resource[0]();
+    $metodo = $resource[1];
     if(isset($params) &&  $params != null){
       echo $controller->$metodo($params);
     }

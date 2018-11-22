@@ -6,10 +6,10 @@ class ConfigApi {
   public static $PARAMS = 'params';
   public static $RESOURCES = [
 
-    'commentary#GET' => 'CommentaryApi#getCommentarys',
-    'commentary#DELETE' => 'CommentaryApi#deleteCommentary',
-    'commentary#POST' => 'CommentaryApi#createCommentary',
-    'commentary#PUT' => 'CommentaryApi#editCommentary',
+    'comment#GET' => 'CommentaryApi#getCommentarys',
+    'comment#DELETE' => 'CommentaryApi#deleteCommentary',
+    'comment#POST' => 'CommentaryApi#createCommentary',
+    'comment#PUT' => 'CommentaryApi#editCommentary',
   ];
 }
 

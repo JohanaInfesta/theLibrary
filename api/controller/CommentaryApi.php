@@ -2,29 +2,30 @@
 
 require_once "Api.php";
 require_once "./../model/CommentaryModel.php";
-require_once "./../view/CommentaryView.php";
+// require_once "./../view/CommentaryView.php";
 
-class CommetaryApiController extends Api{
+class CommentaryApi extends Api{
 
   protected $model;
-  protected $view;
+  // protected $view;
 
   function __construct(){
 
     parent::__construct();
     $this->model = new CommentaryModel();
-    $this->view = new CommentaryView();
+    // $this->view = new CommentaryView();
   }
 
-  function getCommentarys($id_book){
-    if ( isset ( $_GET ['id_book'])) {
-      $id_book = $_GET['id_book'];
+  function getCommentarys($param = null){
+
       $data = $this->model->getCommentarys();
-      $this->view->viewComments($data);
-      return $this->json_response($data , 200);
-    }else {
-      return $this->json_response(null, 404);
-    }
+      // $this->view->viewComments($data);
+      if(isset($data)){
+        return $this->json_response($data , 200);
+      }else {
+        return $this->json_response(null, 404);
+      }
+
   }
 
   function deleteCommentary($id){
@@ -58,6 +59,6 @@ class CommetaryApiController extends Api{
     //     $commentary = $this->model->getCommentary($id_commentary);
     //     // $this->view->viewFormCommentary($commentary);
     //   }
-    }
   }
-  ?>
+}
+?>

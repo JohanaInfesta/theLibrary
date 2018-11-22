@@ -52,12 +52,12 @@
             <option value="5">5</option>
           </select>
         </div>
-<div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
+        <!-- <div class="g-recaptcha" data-sitekey="6Lc0gXwUAAAAAPG2TeWLjwnPgBZHJb2B5NX3fPaI"></div> -->
         <button type="submit" class="btn btn-default">Enviar Comentario</button>
       </form>
     </div>
     {/if}
   </div>
 </div>
-<!-- <script src='https://www.google.com/recaptcha/api.js'></script> <!--captcha-->
+<!-- <script src='https://www.google.com/recaptcha/api.js?hl=es'></script> --> 
 <script src="./js/scriptApi.js" ></script>
