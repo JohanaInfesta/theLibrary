@@ -1,6 +1,7 @@
 <?php
 
-error_reporting(E_ALL ^ E_NOTICE);
+define('RESOURCE', 0);
+define('PARAMS', 1);
 
 require_once "config/ConfigApi.php";
 require_once "controller/CommentaryApi.php";
@@ -11,23 +12,23 @@ require_once "controller/CommentaryApi.php";
 
 function parseURL($url)
 {
-  $urlExploded = explode('/', $url);
-  $arrayReturn[ConfigApi::$RESOURCE] = $urlExploded[0].'#'.$_SERVER['REQUEST_METHOD'];
-  $arrayReturn[ConfigApi::$PARAMS] = isset($urlExploded[1]) ? array_slice($urlExploded,1) : null;  return $arrayReturn;
+  $urlExploded = explode('/', trim($url,'/'));
+  $arrayReturn[ConfigApi::$RESOURCE] = $urlExploded[RESOURCE].'#'.$_SERVER['REQUEST_METHOD'];
+  $arrayReturn[ConfigApi::$PARAMS] = isset($urlExploded[PARAMS]) ? array_slice($urlExploded,1) : null;
   return $arrayReturn;
-
 }
 if(isset($_GET['resource'])){
   $urlData = parseURL($_GET['resource']);
-  $action = $urlData[ConfigApi::$RESOURCE];
+  $resource = $urlData[ConfigApi::$RESOURCE];
   if(array_key_exists($resource,ConfigApi::$RESOURCES)){
     $params = $urlData[ConfigApi::$PARAMS];
-    $resource = explode('#',ConfigApi::$RESOURCES[$resource]);
-    $controller =  new $resource[0]();
-    $metodo = $resource[1];
-    if (isset($params) && $params != null){
+    $controller_method = explode('#',ConfigApi::$RESOURCES[$resource]);
+    $controller =  new $controller_method[0]();
+    $metodo = $controller_method[1];
+    if(isset($params) &&  $params != null){
       echo $controller->$metodo($params);
-    } else {
+    }
+    else{
       echo $controller->$metodo();
     }
   }
