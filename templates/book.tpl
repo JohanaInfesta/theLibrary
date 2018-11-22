@@ -33,14 +33,16 @@
     {if ($isLoggedIn)}
     <div class="col">
       <form class="formCommentary" method="post" onsubmit="postCommentary(this, event)">
-        <input type="hidden" id="" name="id_book" value="{$commentary['id_book_fk']}">
-        <input type="hidden" id="" name="id_user" value="{$commentary['id_user_fk']}">
+        <div class="form-group">
+          <input type="hidden" id="" name="id_book" value="{$commentary['id_book_fk']}">
+          <input type="hidden" id="" name="id_user" value="{$commentary['id_user_fk']}">
+        </div>
         <div class="form-group">
           <label for="commentary">Comentario: </label>
           <textarea name="review" id="" rows="8" cols="50" required>{$commentary['review']}</textarea>
         </div>
         <div class="form-group">
-          <label for="qualification">Calificación: </label>
+          <label for="store">Calificación: </label>
           <select name='puntaje' required>
             <option value="">Calificar</option>
             <option value="1">1</option>
@@ -50,11 +52,12 @@
             <option value="5">5</option>
           </select>
         </div>
-        <div class="g-recaptcha" data-sitekey="6LeiU3oUAAAAAP4WL-U5WqqZ6PU9JSWYA6GdSgcr"></div> <!--captcha -->
+<div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
         <button type="submit" class="btn btn-default">Enviar Comentario</button>
       </form>
     </div>
     {/if}
   </div>
 </div>
+<!-- <script src='https://www.google.com/recaptcha/api.js'></script> <!--captcha-->
 <script src="./js/scriptApi.js" ></script>
