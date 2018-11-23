@@ -96,7 +96,7 @@ body {
 }
 .login button, .registro button{
     padding:0.6em 1em;
-    
+
 }
 /*    3.C. Books            */
 .portada, .authors{
@@ -189,5 +189,3 @@ div.social-links {
 .social-links a:hover {
     color:gray;
 }
-
-

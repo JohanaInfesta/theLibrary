@@ -8,7 +8,7 @@ require_once "./../model/CommentaryModel.php";
 class CommentaryApi extends Api{
 
   protected $model;
-  protected $UserModel;
+  // protected $UserModel;
 
   function __construct(){
     parent::__construct();
