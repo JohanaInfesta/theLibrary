@@ -23,6 +23,7 @@
     </div>
   </div>
   <div class="row listCommentary" id="listCommentary">
+    <input type="hidden" id="isAdmin" name="isAdmin" value="{$isSuperUser}">
 
   </div>
   <div class="row">

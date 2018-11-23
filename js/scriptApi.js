@@ -30,7 +30,7 @@ function filterComments(comments){
 function viewCommentarys(jsonComment) {
 
   let context = { // como el assign de smarty
-    comment: jsonComment
+    comment: jsonComment,
   }
   let html = templateComments(context);
   $('.listCommentary').html(html);
@@ -64,12 +64,10 @@ function postComment(form, event){
 }
 
 function deleteCommentary(id){
-
-  debugger;
-  fetch("api/comment/" + id, {
-    method : 'DELETE',
-    headers:{"Content-Type":"application/json"}
-  }).then(r => getCommentarys())
+    fetch("api/comment/" + id, {
+      method : 'DELETE',
+      headers:{"Content-Type":"application/json"}
+    }).then(r => getCommentarys())
 }
 
 //function editarCommentario(id_comment)

@@ -2,18 +2,14 @@
 
 require_once "Api.php";
 require_once "./../model/CommentaryModel.php";
-// require_once './../model/UserModel.php';
-// require_once "ApiSecuredController.php";
 
 class CommentaryApi extends Api{
 
   protected $model;
-  // protected $UserModel;
 
   function __construct(){
     parent::__construct();
     $this->model = new CommentaryModel();
-    // $this->UserModel = new ApiSecuredController();
   }
 
   function getCommentarys($param = null){
@@ -32,7 +28,6 @@ class CommentaryApi extends Api{
 
 
   function deleteCommentary($param){
-    // if ($this->isSuperUser() && $this->isLoggedIn()){
     if(count($param) == 1){
       $id_comment = $param[0];
       $r = $this->model->deleteCommentary($id_comment);
@@ -43,22 +38,21 @@ class CommentaryApi extends Api{
     }else{
       return $this->json_response("No task specified", 300);
     }
-    // }
-  }
+}
 
   function createCommentary(){
-  $objJson = $this->getJSONData();
-  $id_comment = $objJson->id_comment;
-  $comment = $objJson->comment;
-  $score = $objJson->score;
-  $id_book = $objJson->id_book;
-  $id_user = $objJson->id_user;
-  if ($id_comment != null) {
-    $this->model->editCommentary($id_comment, $comment);
-  }else{
-    $data=$this->model->addCommentary($comment, $score, $id_book, $id_user);
-  }
-  return $this->json_response($data , 200);
+    $objJson = $this->getJSONData();
+    $id_comment = $objJson->id_comment;
+    $comment = $objJson->comment;
+    $score = $objJson->score;
+    $id_book = $objJson->id_book;
+    $id_user = $objJson->id_user;
+    if ($id_comment != null) {
+      $this->model->editCommentary($id_comment, $comment);
+    }else{
+      $data=$this->model->addCommentary($comment, $score, $id_book, $id_user);
+    }
+    return $this->json_response($data , 200);
 }
 
   function editCommentary($params){
