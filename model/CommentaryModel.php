@@ -16,7 +16,7 @@ class CommentaryModel {
 
   function getCommentarys(){
     // "SELECT commentary, * FROM commentary ORDER BY score ASC LIMIT =? WHERE id_book =? "//DESC LIMIT // mirar
-    $sentencia = $this->db->prepare( "SELECT c.*, u.name  FROM comment AS c LEFT JOIN user AS u ON u.id_user = c.id_user ORDER BY score");
+    $sentencia = $this->db->prepare( "SELECT c.*, u.name  FROM comment AS c LEFT JOIN user AS u ON u.id_user = c.id_user ORDER BY score DESC");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
