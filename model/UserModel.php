@@ -22,7 +22,7 @@ class UserModel extends Model
     $user = $_SESSION['USER'];
     return $user;
   }
-  
+
   function userExist($userMail){
     $sentence = $this->db->prepare("SELECT * FROM user WHERE mail = ? LIMIT 1");
     $sentence->execute([$userMail]);
@@ -53,7 +53,7 @@ class UserModel extends Model
     $isLoggedIn = false;
     if (isset($_SESSION['USER']) && ((time() - (int)$_SESSION['LAST_ACTIVITY']) < 1800)) {
       $isLoggedIn = true;
-      $_SESSION['LAST_ACTIVITY'] = time();      
+      $_SESSION['LAST_ACTIVITY'] = time();
     }
     return $isLoggedIn;
   }

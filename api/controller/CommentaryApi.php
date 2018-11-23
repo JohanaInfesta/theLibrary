@@ -2,34 +2,37 @@
 
 require_once "Api.php";
 require_once "./../model/CommentaryModel.php";
+// require_once './../model/UserModel.php';
+require_once "ApiSecuredController.php";
 
 class CommentaryApi extends Api{
 
   protected $model;
+  protected $UserModel;
 
   function __construct(){
-
-    parent::__construct();
+    // parent::__construct();
     $this->model = new CommentaryModel();
+    $this->UserModel = new ApiSecuredController();
   }
 
   function getCommentarys(){
 
-      $data = $this->model->getCommentarys();
-      if(isset($data)){
-        return $this->json_response($data , 200);
-      }else {
-        return $this->json_response(null, 404);
-      }
+    $data = $this->model->getCommentarys();
+    if(isset($data)){
+      return $this->json_response($data , 200);
+    }else {
+      return $this->json_response(null, 404);
+    }
 
   }
 
-  function deleteCommentary($id){
-    if (UserModel::isSuperUser()) {
-      $commentary = $this->$model->getCommentary($id);
-      if ($commentary) {
+  function deleteCommentary($id_comment){
+    if ($this->isSuperUser() && $this->isLoggedIn()){
+      $comment = $this->$model->getCommentary($id_comment);
+      if ($comment) {
         $this->model->deleteCommentary($id);
-        return $this->json_response($commentary, 200);
+        return $this->json_response($comment, 200);
       }else{
         return $this->json_response(null, 404);
       }

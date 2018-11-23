@@ -17,7 +17,7 @@ function getCommentarys() {
 }
 
 function filterComments(comments){
-let idbook = document.querySelector(".id").id;
+  let idbook = document.querySelector(".id").id;
   let result=[];
   comments.forEach(r=>{
     if(r.id_book == idbook){
@@ -31,7 +31,7 @@ function viewCommentarys(jsonComment) {
 
   let context = { // como el assign de smarty
     comment: jsonComment
-    }
+  }
   let html = templateComments(context);
   $('.listCommentary').html(html);
 }
@@ -39,9 +39,9 @@ function viewCommentarys(jsonComment) {
 
 function postComment(form, event){
   event.preventDefault();
-debugger;
-let score = document.getElementById("score");
-let scoreVal= score.options[score.selectedIndex].value;
+  debugger;
+  let score = document.getElementById("score");
+  let scoreVal= score.options[score.selectedIndex].value;
   let comentario = {
     'id_comment' : document.getElementById("id_comment").value,
     'comment' : document.getElementById("comment").value,
@@ -53,7 +53,7 @@ let scoreVal= score.options[score.selectedIndex].value;
   //   thing: comentario
   // };
   if(comentario){
-debugger;
+    debugger;
     fetch("api/comment",{
       method : 'POST',
       headers:{"Content-Type":"application/json"},
@@ -63,10 +63,12 @@ debugger;
   }
 }
 
-function deleteCommentary(id_commentary){
-  fetch("api/commentary"+id_commentary, {
+function deleteCommentary(id){
+
+  debugger;
+  fetch("api/comment/" + id, {
     method : 'DELETE',
-    headers:{"Content-Type":"application/json"},
+    headers:{"Content-Type":"application/json"}
   }).then(r => getCommentarys())
 }
 
