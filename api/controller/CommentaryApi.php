@@ -34,7 +34,7 @@ class CommentaryApi extends Api{
         $this->model->deleteCommentary($id);
         return $this->json_response($comment, 200);
       }else{
-        return $this->json_response(null, 404);
+        return $this->json_response(null, 401);
       }
     }
   }
