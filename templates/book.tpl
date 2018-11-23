@@ -1,4 +1,4 @@
-<div class="container-fluid cuerpo-index">
+<div class="container-fluid cuerpo-index book">
   <div class="row">
     <div class="col-md-8 col-md-offset-2" id="mensaje"></div>
   </div>
@@ -6,7 +6,7 @@
     <div class="col">
       <section class="col-12">
         <div class="itemBox">
-          <div class="itemName">
+          <div class="itemName id" id="{$book['id_book']}">
             <h3>{$book['name']} - Autor: {$book['author']}</h3>
             <h4>Genero: {$book['gender']} - Editorial: {$book['editorial']}</h4>
             {if ($isLoggedIn)}
@@ -22,9 +22,8 @@
       </section>
     </div>
   </div>
-  <div class="row" id="listCommentary ">
-    <div class="id" id="{$book['id_book']}">
-    </div>
+  <div class="row listCommentary" id="listCommentary">
+
   </div>
   <div class="row">
     <div class="col-md-8 col-md-offset-2" id="mensaje"></div>
@@ -32,18 +31,19 @@
   <div class="row">
     {if ($isLoggedIn)}
     <div class="col">
-      <form class="formCommentary" method="post" onsubmit="postCommentary(this, event)">
+      <form class="formComment" method="post" onsubmit="postComment(this, event)">
         <div class="form-group">
-          <input type="hidden" id="" name="id_book" value="{$commentary['id_book_fk']}">
-          <input type="hidden" id="" name="id_user" value="{$commentary['id_user_fk']}">
+          <input type="hidden" id="id_comment" name="id_comment" value="{$comment['id_comment']}">
+          <input type="hidden" id="id_book" name="id_book" value="{$book['id_book']}">
+          <input type="hidden" id="id_user" name="id_user" value="{$user['id_user']}">
         </div>
         <div class="form-group">
-          <label for="commentary">Comentario: </label>
-          <textarea name="review" id="" rows="8" cols="50" required>{$commentary['review']}</textarea>
+          <label for="comment">Comentario: </label>
+          <textarea name="comment" id="comment" rows="8" cols="50" required>{$comment['comment']}</textarea>
         </div>
         <div class="form-group">
-          <label for="store">Calificación: </label>
-          <select name='puntaje' required>
+          <label for="score">Calificación: </label>
+          <select name='score' id="score" required>
             <option value="">Calificar</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -52,12 +52,10 @@
             <option value="5">5</option>
           </select>
         </div>
-        <!-- <div class="g-recaptcha" data-sitekey="6Lc0gXwUAAAAAPG2TeWLjwnPgBZHJb2B5NX3fPaI"></div> -->
-        <button type="submit" class="btn btn-default">Enviar Comentario</button>
+        <button type="submit" class="btn btn-outline-dark btn-categorias">Enviar Comentario</button>
       </form>
     </div>
     {/if}
   </div>
 </div>
-<!-- <script src='https://www.google.com/recaptcha/api.js?hl=es'></script> --> 
-<script src="./js/scriptApi.js" ></script>
+<!-- <script src='https://www.google.com/recaptcha/api.js?hl=es'></script> -->

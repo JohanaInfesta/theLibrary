@@ -52,6 +52,9 @@ function navigate(url) {
 function navigatePost(url, data) {
   $.post(url, data, function (res) {
     $('.main-content').html(res);
+    if(url.indexOf('book') != -1){
+      startApi();
+    }
   });
 }
 
@@ -182,7 +185,7 @@ function editBook(id_book) {
 }
 
 function deleteImage(id_image) {
-  
+
   $.ajax({
     url: 'http://localhost/theLibrary/deleteBookImage/' + id_image,
     type: "DELETE",
@@ -206,7 +209,7 @@ function deleteImage(id_image) {
 
 function saveAuthor(form, event) {
   event.preventDefault();
-  
+
   let form_data = new FormData(form);
   $.ajax({
     url: 'http://localhost/theLibrary/saveAuthor',
@@ -216,7 +219,7 @@ function saveAuthor(form, event) {
     type: "POST",
     success: function (res) {
       console.log(res);
-      reloadAuthors();  
+      reloadAuthors();
       if (res.message) {
         $("#mensajeForm").html($('<div class="alert alert-success " role="alert"></div>').append(res.message));
       } else if (res.error) {
@@ -227,7 +230,7 @@ function saveAuthor(form, event) {
       console.error(err);
     }
   });
-  
+
 }
 
 function deleteAuthor(id_author) {
@@ -238,7 +241,7 @@ function deleteAuthor(id_author) {
     success: function (res) {
       $('#' + id_author).remove();
       console.log(JSON.parse(res));
-      reloadAuthors();  
+      reloadAuthors();
       res = JSON.parse(res);
       if (res.message) {
         $("#mensaje").html($('<div class="alert alert-success" role="alert"></div>').append(res.message));

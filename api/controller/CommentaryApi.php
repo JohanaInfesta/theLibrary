@@ -2,24 +2,20 @@
 
 require_once "Api.php";
 require_once "./../model/CommentaryModel.php";
-// require_once "./../view/CommentaryView.php";
 
 class CommentaryApi extends Api{
 
   protected $model;
-  // protected $view;
 
   function __construct(){
 
     parent::__construct();
     $this->model = new CommentaryModel();
-    // $this->view = new CommentaryView();
   }
 
-  function getCommentarys($param = null){
+  function getCommentarys(){
 
       $data = $this->model->getCommentarys();
-      // $this->view->viewComments($data);
       if(isset($data)){
         return $this->json_response($data , 200);
       }else {
@@ -41,16 +37,20 @@ class CommentaryApi extends Api{
   }
 
   function createCommentary(){
-    $id_commentary = $_POST['id_commentary'];
-    $commentary = $_POST['commentary'];
-    $qualification = $_POST['qualification'];
-    $id_book_fk = $_POST['id_book_fk'];
-    $id_user_fk = $_POST['id_user_fk'];
-    // if ($id_commentary != null) {
-    //   $this->model->editCommentary($id_commentary, $commentary);
-    // }else{
-    //   $this->model->addCommentary($commentary, $qualification, $id_book, $id_user)
-    // }
+    $objJson = $this->getJSONData();
+
+    $id_comment = $objJson->id_comment;
+    $comment = $objJson->comment;
+    $score = $objJson->score;
+    $id_book = $objJson->id_book;
+    $id_user = $objJson->id_user;
+
+    if ($id_comment != null) {
+      $this->model->editCommentary($id_comment, $comment);
+    }else{
+      $data=$this->model->addCommentary($comment, $score, $id_book, $id_user);
+    }
+    return $this->json_response($data , 200);
   }
 
   function editCommentary($params){

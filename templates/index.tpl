@@ -96,6 +96,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="./js/scriptApi.js" ></script>
   <!-- <script src="js/handlebars-v4.0.12.js"></script> <!-- js de handlebars--> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.js"></script>
 </body>

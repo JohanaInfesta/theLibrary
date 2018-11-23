@@ -16,17 +16,9 @@ class CommentaryModel {
 
   function getCommentarys(){
     // "SELECT commentary, * FROM commentary ORDER BY score ASC LIMIT =? WHERE id_book =? "//DESC LIMIT // mirar
-    // $sentencia = $this->db->prepare( "SELECT c.*, u.name  FROM comment AS c LEFT JOIN user AS u ON u.id_user = c.id_user WHERE id_book = ?");
-  $sentencia = $this->db->prepare ("SELECT * FROM comment");
-  $sentencia->execute();
+    $sentencia = $this->db->prepare( "SELECT c.*, u.name  FROM comment AS c LEFT JOIN user AS u ON u.id_user = c.id_user ORDER BY score");
+    $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-
-    // $result->id_comment=1;
-    // $result->comment='hola';
-    // $result->score=5;
-    // $result->id_book=1;
-    // $result->id_user=1;
-    // return $result;
   }
 
   function getCommentary($id_comment, $id_user){ //Solo puede editar si el usuario log es el mismo que el user que creo el comentario
@@ -38,6 +30,7 @@ class CommentaryModel {
   function addCommentary($comment, $score, $id_book, $id_user){
     $sentencia = $this->db->prepare("INSERT INTO comment(comment, score, id_book, id_user) VALUES(?,?,?,?)");
     $sentencia->execute([$comment, $score, $id_book, $id_user]);
+    return $this->db->lastInsertId();
   }
 
   function editCommentary($id_comment, $comment, $id_user){

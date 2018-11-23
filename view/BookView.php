@@ -6,9 +6,11 @@ class BookView extends View
     $this->smarty->assign('isLoggedIn', UserModel::isLoggedIn());
     $this->smarty->display('templates/books.tpl');
   }
-  function viewBook($book){
+  function viewBook($book, $user){
     $this->smarty->assign('book', $book);
+    $this->smarty->assign('user', $user);
     $this->smarty->assign('isLoggedIn', UserModel::isLoggedIn());
+    $this->smarty->assign('isSuperUser', UserModel::isSuperUser());
     $this->smarty->display('templates/book.tpl');
   }
   function viewFormBook($authors, $genders, $book = null, $images = null){
@@ -23,7 +25,7 @@ class BookView extends View
     }
     $this->smarty->display('templates/formBook.tpl');
   }
-  
+
 }
 
  ?>

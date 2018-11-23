@@ -3,6 +3,7 @@ include_once('model/BookModel.php');
 include_once('view/BookView.php');
 include_once('model/AuthorModel.php');
 include_once('model/ImagesModel.php');
+include_once('model/UserModel.php');
 
 class BookController extends Controller
 {
@@ -13,6 +14,7 @@ class BookController extends Controller
     $this->model = new BookModel();
     $this->a_model = new AuthorModel();
     $this->i_model = new ImagesModel();
+    $this->u_model = new UserModel();
   }
 
   public function index()
@@ -49,9 +51,10 @@ class BookController extends Controller
   public function description(){
     $id_book= $_POST['id_book'];
     $book = $this->model->getBook($id_book);
+    $user = $this->u_model->getUserLog();
     $book["images"] = $this->i_model->getImages($book["id_book"]);
 
-    $this->view->viewBook($book);
+    $this->view->viewBook($book, $user);
   }
 
   public function store()
