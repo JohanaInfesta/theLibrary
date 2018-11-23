@@ -16,29 +16,33 @@ class CommentaryApi extends Api{
     $this->UserModel = new ApiSecuredController();
   }
 
-  function getCommentarys(){
-
-    if(isset($_GET['id_comment'])){
-      $id_comment = $_GET['id_comment'];
-      $data = $this->model->getCommentary($id_comment);
-    }else{
+  function getCommentarys($param = []){
+    if(empty($param)){
       $data = $this->model->getCommentarys();
-    }
-    if(isset($data)){
       return $this->json_response($data, 200);
     }else{
-      return $this->json_response(null,400);
+      $id_comment = $params[':ID'];
+      $data = $this->model->getCommentary($id_comment);
+      if(!empty($data)){
+        return $this->json_response($data, 200);
+      }else{
+        return $this->json_response(null,400);
+      }
     }
   }
 
-  function deleteCommentary($id_comment){
+  function deleteCommentary($param = null){
     if ($this->isSuperUser() && $this->isLoggedIn()){
-      $comment = $this->$model->getCommentary($id_comment);
-      if ($comment) {
-        $this->model->deleteCommentary($id);
-        return $this->json_response($comment, 200);
+      // $comment = $this->$model->getCommentary($id_comment);
+      if(count($param) == 1){
+        $id_comment = $param[0];
+        $r = $this->model->deleteCommentary($id_comment);
+        if ($r == false) {
+          return $this->json_response($r, 300);
+        }
+        return $this->json_response($r, 200);
       }else{
-        return $this->json_response(null, 401);
+        return $this->json_response("No task specified", 300);
       }
     }
   }
