@@ -4,6 +4,7 @@ class ApiSecuredController extends Api
 {
     private $logged;
     private $admin;
+
     public function __construct()
     {
         parent::__construct();
@@ -19,10 +20,10 @@ class ApiSecuredController extends Api
             $this->admin = false;
         }
     }
-    function Logueado(){
+    function isLoggedIn(){
         return $this->logged;
     }
-    function esAdmin(){
+    function isSuperUser(){
         return $this->admin;
     }
 }

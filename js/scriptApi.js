@@ -64,7 +64,6 @@ function postComment(form, event){
 }
 
 function deleteCommentary(id){
-
   debugger;
   fetch("api/comment/" + id, {
     method : 'DELETE',

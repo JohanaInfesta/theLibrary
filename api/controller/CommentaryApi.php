@@ -18,13 +18,17 @@ class CommentaryApi extends Api{
 
   function getCommentarys(){
 
-    $data = $this->model->getCommentarys();
-    if(isset($data)){
-      return $this->json_response($data , 200);
-    }else {
-      return $this->json_response(null, 404);
+    if(isset($_GET['id_comment'])){
+      $id_comment = $_GET['id_comment'];
+      $data = $this->model->getCommentary($id_comment);
+    }else{
+      $data = $this->model->getCommentarys();
     }
-
+    if(isset($data)){
+      return $this->json_response($data, 200);
+    }else{
+      return $this->json_response(null,400);
+    }
   }
 
   function deleteCommentary($id_comment){
