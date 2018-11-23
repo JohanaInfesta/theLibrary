@@ -59,17 +59,17 @@ function postComment(form, event){
       headers:{"Content-Type":"application/json"},
       body: JSON.stringify(comentario)
     }).then(r => getCommentarys())
-    // .catch(error => console.log(error))
+    .catch(error => console.log(error))
   }
 }
 
 function deleteCommentary(id){
+
   debugger;
   fetch("api/comment/" + id, {
     method : 'DELETE',
     headers:{"Content-Type":"application/json"}
   }).then(r => getCommentarys())
-// .catch(error => console.log(error))
 }
 
 //function editarCommentario(id_comment)
