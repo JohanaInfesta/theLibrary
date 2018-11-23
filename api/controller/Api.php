@@ -2,11 +2,11 @@
 abstract class Api{
 
   protected $model;
-  protected $raw_data;
+  protected $data;
 
   function __construct(){
-    //Lee los datos pasados por post(raw_data) y los convierte a un JSON string
-    $this->raw_data = file_get_contents("php://input");
+    //Lee los datos pasados por post(data) y los convierte a un JSON string
+    $this->data = file_get_contents("php://input");
   }
   //Retorna un JSON y le comunica el estado a HTTP
   protected function json_response($data, $status) {
@@ -28,7 +28,7 @@ abstract class Api{
   }
   //Devuelve el JSON string en formato php_array
   function getJSONData(){
-    return json_decode($this->raw_data);
+    return json_decode($this->data);
   }
 }
 ?>

@@ -141,6 +141,7 @@ function deleteBook(id_book) {
     success: function (res) {
       $('#' + id_book).remove();
       console.log(JSON.parse(res));
+      reloadBooks();
       res = JSON.parse(res);
       if (res.message) {
         $("#mensaje").html($('<div class="alert alert-success" role="alert"></div>').append(res.message));
@@ -167,6 +168,7 @@ function saveBook(form, event) {
     type: "POST",
     success: function (res) {
       console.log(JSON.parse(res));
+      reloadBooks();
       res = JSON.parse(res);
       if (res.message) {
         $("#mensajeForm").html($('<div class="alert alert-success " role="alert"></div>').append(res.message));
@@ -260,5 +262,8 @@ function editAuthor(id_author) {
 }
 
 function reloadAuthors(){
+  window.location = 'http://localhost/theLibrary/';
+}
+function reloadBooks(){
   window.location = 'http://localhost/theLibrary/';
 }

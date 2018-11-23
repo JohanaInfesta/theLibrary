@@ -21,9 +21,9 @@ class CommentaryModel {
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function getCommentary($id_comment, $id_user){ //Solo puede editar si el usuario log es el mismo que el user que creo el comentario
-    $sentencia = $this->db->prepare( "SELECT * FROM comment WHERE id_comment = ? AND id_user = ?");
-    $sentencia->execute([$id_comment, $id_user]);
+  function getCommentary($id_comment){ //Solo puede editar si el usuario log es el mismo que el user que creo el comentario
+    $sentencia = $this->db->prepare( "SELECT * FROM comment WHERE id_comment = ?");
+    $sentencia->execute([$id_comment]);
     return $sentencia->fetch();
   }
 
@@ -39,8 +39,8 @@ class CommentaryModel {
   }
 
   function deleteCommentary($id_comment){
-    $sentencia = $this->prepare("DELETE FROM comment WHERE id_comment=?");
-    $sentencia->execute([$id_comment]);
+    $sentencia = $this->db->prepare("DELETE FROM comment WHERE id_comment = ?");
+    return $sentencia->execute([$id_comment]);
   }
 
 }

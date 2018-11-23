@@ -16,35 +16,34 @@ class CommentaryApi extends Api{
     $this->UserModel = new ApiSecuredController();
   }
 
-  function getCommentarys($param = []){
-    if(empty($param)){
+  function getCommentarys($param = null){
+    if(isset($param)){
+      $id_comment = $param[0];
+      $data = $this->model->getCommentary($id_comment);
+    }else{
       $data = $this->model->getCommentarys();
+    }
+    if(isset($data)){
       return $this->json_response($data, 200);
     }else{
-      $id_comment = $params[':ID'];
-      $data = $this->model->getCommentary($id_comment);
-      if(!empty($data)){
-        return $this->json_response($data, 200);
-      }else{
-        return $this->json_response(null,400);
-      }
+      return $this->json_response(null,400);
     }
   }
 
-  function deleteCommentary($param = null){
-    if ($this->isSuperUser() && $this->isLoggedIn()){
-      // $comment = $this->$model->getCommentary($id_comment);
-      if(count($param) == 1){
-        $id_comment = $param[0];
-        $r = $this->model->deleteCommentary($id_comment);
-        if ($r == false) {
-          return $this->json_response($r, 300);
-        }
-        return $this->json_response($r, 200);
-      }else{
-        return $this->json_response("No task specified", 300);
+
+  function deleteCommentary($param){
+    // if ($this->isSuperUser() && $this->isLoggedIn()){
+    if(count($param) == 1){
+      $id_comment = $param[0];
+      $r = $this->model->deleteCommentary($id_comment);
+      if ($r == false) {
+        return $this->json_response($r, 300);
       }
+      return $this->json_response($r, 200);
+    }else{
+      return $this->json_response("No task specified", 300);
     }
+    // }
   }
 
   function createCommentary(){
