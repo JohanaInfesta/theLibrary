@@ -53,10 +53,11 @@
             <option value="5">5</option>
           </select>
         </div>
+          <div class="g-recaptcha" data-sitekey="6Lc9034UAAAAABd71mGTPsslIPR3PESfbUSg77J7"></div>
         <button type="submit" class="btn btn-outline-dark btn-categorias">Enviar Comentario</button>
       </form>
     </div>
     {/if}
   </div>
 </div>
-<!-- <script src='https://www.google.com/recaptcha/api.js?hl=es'></script> -->
+<script src='https://www.google.com/recaptcha/api.js'></script>
